@@ -1,58 +1,44 @@
 #include <stdlib.h>
-#include <stdio.h>
 
-size_t	ft_strlen(const char *s)
+static int	malloc_count(long nb)
 {
-	size_t	i = 0;
-	while (s[i])
-		i++;
-	return (i);
+	int	n = 1;
+	while (nb >= 10)
+	{
+		nb /= 10;
+		n++;
+	}
+	return (n);
 }
 
-char	*ft_substr(const char *s, unsigned int start, size_t len)
+char	*ft_itoa(int n)
 {
 	char	*ret;
-	size_t	i;
-	size_t	slen;
+	long	nb;
+	int		count;
+	int		sign;
 
-	if (!s)
-		return (NULL);
-
-	slen = ft_strlen(s);
-
-	// startが文字列長を超えていたら空文字を返す
-	if (start >= slen)
+	if (n < 0)
 	{
-		ret = (char *)malloc(1);
-		if (!ret)
-			return (NULL);
-		ret[0] = '\0';
-		return (ret);
+		sign = 1;
+		nb = -(long)n;
 	}
-
-	// 残りの長さがlenより短ければ短い方を採用
-	if (slen - start < len)
-		len = slen - start;
-
-	ret = (char *)malloc(sizeof(char) * (len + 1));
+	else
+	{
+		sign = 0;
+		nb = (long)n;
+	}
+	count = malloc_count(nb);
+	ret = malloc((count + sign + 1) * sizeof(char));
 	if (!ret)
 		return (NULL);
-
-	i = 0;
-	while (i < len && s[start + i])
+	ret[count + sign] = '\0';
+	while (count--)
 	{
-		ret[i] = s[start + i];
-		i++;
+		ret[count + sign] = (nb % 10) + '0';
+		nb /= 10;
 	}
-	ret[i] = '\0';
+	if (sign)
+		ret[0] = '-';
 	return (ret);
-}
-
-int	main(void)
-{
-	char *s = "abede";
-	unsigned int start = 1;
-	size_t len = 8;
-	printf("%s\n", ft_substr(s, start, len));
-	return (0);
 }
