@@ -55,10 +55,18 @@ int open(const char *pathname, int flags, mode_t mode);
 ・mode: 新しく作る場合の「パーミッション（アクセス権）」設定
 
 
-④ O_TRUNC
-→ ファイルの中身を空にする（truncate）
-すでに "output.txt" が存在していた場合、
-中身を全部消してから開きます。
+open関数のオプションの活用
+読み取り専用で開く
+  int fd = open("sample.txt", O_RDONLY);
+
+書き込み専用で開く
+  int fd = open("sample.txt", O_WRONLY);
+
+ファイルが存在しない場合に新規作成
+  int fd = open("sample.txt", O_WRONLY | O_CREAT, 0644);
+  
+既存のファイルを開いて内容を空にする
+  int fd = open("sample.txt", O_WRONLY | O_TRUNC);
 
 結論：fdには「数字」が入る
 open()が返すのは「ファイルディスクリプタ」という整数番号(int型)です。
@@ -100,3 +108,12 @@ ft_putchar_fd('H', fd);
 | 1        | 標準出力（画面）                  |
 | 2        | 標準エラー出力（画面）               |
 | 3以降      | `open()` などで開いたファイルやパイプなど |
+
+wiret関数の使用に関して
+
+ssize_t write(int fd, const void *buf, size_t count);
+戻り値: 実際に書き込まれたバイト数（エラー時は-1を返します）。
+引数の説明:
+fd（ファイルディスクリプタ）: 書き込み先を示す整数値。標準出力（1）や標準エラー（2）なども指定可能。
+buf（バッファ）: 書き込むデータを格納しているメモリのアドレス。
+count（書き込むバイト数）: バッファから書き込むデータのサイズ。
