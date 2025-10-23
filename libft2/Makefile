@@ -6,7 +6,7 @@
 #    By: yohya <yohya@student.42tokyo.jp>           +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/10/16 10:32:14 by yohya             #+#    #+#              #
-#    Updated: 2025/10/22 16:36:42 by yohya            ###   ########.fr        #
+#    Updated: 2025/10/23 17:05:11 by yohya            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -46,7 +46,10 @@ SRCS = ft_atoi.c \
 		ft_putendl_fd.c \
 		ft_putnbr_fd.c
 
-BONUS_SRCS = ft_lstnew.c
+BONUS_SRCS = ft_lstnew.c \
+				ft_lstadd_front.c \
+				ft_lstsize.c \
+				ft_lstlast.c
 
 OBJS = $(SRCS:.c=.o)
 BONUS_OBJS = $(BONUS_SRCS:.c=.o)

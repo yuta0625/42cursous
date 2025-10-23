@@ -1,31 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstadd_front.c                                  :+:      :+:    :+:   */
+/*   ft_lstsize.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yohya <yohya@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/22 16:49:51 by yohya             #+#    #+#             */
-/*   Updated: 2025/10/23 15:47:33 by yohya            ###   ########.fr       */
+/*   Created: 2025/10/23 15:28:43 by yohya             #+#    #+#             */
+/*   Updated: 2025/10/23 15:46:39 by yohya            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_lstadd_front(t_list **lst, t_list *new)
+int	ft_lstsize(t_list *lst)
 {
-	new ->next = *lst;
-	*lst = new;
+	int	count;
+
+	count = 0;
+	while (lst != NULL)
+	{
+		count++;
+		lst = lst ->next;
+	}
+	return (count);
 }
 
-// int main(void)
+// int	main(void)
 // {
-// 	t_list *lst = ft_lstnew("apple");
-// 	t_list *new = ft_lstnew("science");
-// 	ft_lstadd_front(&lst, new);
-
-//     printf("%s %s\n", (char *)lst->content, (char *)lst->next->content);
-// 	free(lst);
-// 	free(new);
+// 	t_list *a = ft_lstnew("hello");
+// 	t_list *b = ft_lstnew("soccer");
+// 	t_list *c = ft_lstnew("world");
+// 	a ->next = b;
+// 	b ->next = c;
+// 	int result = ft_lstsize(a);
+// 	printf("%d", result);
+// 	free(a);
+// 	free(b);
+// 	free(c);
 // 	return (0);
 // }

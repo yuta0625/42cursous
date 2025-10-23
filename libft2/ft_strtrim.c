@@ -6,7 +6,7 @@
 /*   By: yohya <yohya@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/19 18:38:58 by yohya             #+#    #+#             */
-/*   Updated: 2025/10/20 11:14:03 by yohya            ###   ########.fr       */
+/*   Updated: 2025/10/23 16:40:52 by yohya            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,20 +23,15 @@ static size_t	ft_strlen(const char *s)
 	return (count);
 }
 
-static char	*ft_strchr(const char *s, int c)
+static int	trim_count(const char *s, char c)
 {
-	char	chr;
-
-	chr = (char)c;
 	while (*s)
 	{
-		if (*s == chr)
-			return ((char *)s);
+		if (*s == c)
+			return (1);
 		s++;
 	}
-	if (chr == '\0')
-		return ((char *)s);
-	return (NULL);
+	return (0);
 }
 
 char	*ft_strtrim(const char *s1, const char *set)
@@ -48,10 +43,10 @@ char	*ft_strtrim(const char *s1, const char *set)
 	char	*ret;
 
 	start = 0;
-	while (s1[start] && ft_strchr(set, s1[start]))
+	while (s1[start] && trim_count(set, s1[start]))
 		start++;
 	end = ft_strlen(s1);
-	while (end > start && ft_strchr(set, s1[end - 1]))
+	while (end > start && trim_count(set, s1[end - 1]))
 		end--;
 	total = end - start;
 	ret = (char *)malloc(sizeof(char) * (total + 1));
@@ -69,7 +64,7 @@ char	*ft_strtrim(const char *s1, const char *set)
 
 // int	main(void)
 // {
-// 	char	*s1 = "soccerplayers42";
-// 	char	*set = "player";
+// 	char	*s1 = "42tokyo";
+// 	char	*set = "4ok";
 // 	printf("%s", ft_strtrim(s1, set));
 // }
