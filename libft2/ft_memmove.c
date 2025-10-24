@@ -6,21 +6,21 @@
 /*   By: yohya <yohya@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/17 12:49:33 by yohya             #+#    #+#             */
-/*   Updated: 2025/10/19 14:57:57 by yohya            ###   ########.fr       */
+/*   Updated: 2025/10/24 18:18:56 by yohya            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <string.h>
-#include <stdio.h>
-#include <stddef.h>
+#include "libft.h"
 
 void	*ft_memmove(void *dest, const void *src, size_t n)
 {
-	char	*d_cpy;
-	char	*s_cpy;
+	unsigned char	*d_cpy;
+	unsigned char	*s_cpy;
 
-	d_cpy = (char *)dest;
-	s_cpy = (char *)src;
+	if (!dest && !src)
+		return (NULL);
+	d_cpy = (unsigned char *)dest;
+	s_cpy = (unsigned char *)src;
 	if (dest <= src)
 	{
 		while (n--)
@@ -36,9 +36,12 @@ void	*ft_memmove(void *dest, const void *src, size_t n)
 	return (dest);
 }
 
+// #include <string.h>
 // int	main(void)
 // {
-// 	char	src[] = "apple";
-// 	ft_memmove(src+1, src, sizeof(src));
+// 	unsigned char src[] = "apple";
+// 	unsigned char dest[] = " ";
+
+// 	ft_memmove(dest, src, sizeof(src));
 // 	printf("%s", src);
 // }

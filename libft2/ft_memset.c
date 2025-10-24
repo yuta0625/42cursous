@@ -6,35 +6,36 @@
 /*   By: yohya <yohya@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/17 10:46:21 by yohya             #+#    #+#             */
-/*   Updated: 2025/10/22 12:45:45 by yohya            ###   ########.fr       */
+/*   Updated: 2025/10/24 17:18:56 by yohya            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <string.h>
-#include <stdio.h>
-#include <stddef.h>
+#include "libft.h"
 
 void	*ft_memset(void *s, int c, size_t n)
 {
-	char		*p;
-	size_t		i;
+	unsigned char		*p;
+	unsigned char		d;
+	size_t				i;
 
-	p = (char *)s;
+	p = (unsigned char *)s;
+	d = (unsigned char)c;
 	i = 0;
 	while (i < n)
 	{
-		p[i] = c;
+		p[i] = d;
 		i++;
 	}
 	return (s);
 }
 
+// #include <string.h>
 // int	main(void)
 // {
-// 	char	buf[6];
+// 	unsigned char	buf[0];
 
-// 	memset(buf, 'A', sizeof(buf));
+// 	ft_memset(buf, 'A', sizeof(buf));
 // 	printf("%s\n", buf);
-// 	ft_memset(buf, 'B', sizeof(buf));
+// 	memset(buf, 'B', sizeof(buf));
 // 	printf("%s", buf);
 // }

@@ -6,22 +6,11 @@
 /*   By: yohya <yohya@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/21 18:54:14 by yohya             #+#    #+#             */
-/*   Updated: 2025/10/22 11:49:31 by yohya            ###   ########.fr       */
+/*   Updated: 2025/10/24 16:39:59 by yohya            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <fcntl.h>
-#include <unistd.h>
-
-static size_t	ft_strlen(char *s)
-{
-	size_t	len;
-
-	len = 0;
-	while (s[len])
-		len++;
-	return (len);
-}
+#include "libft.h"
 
 void	ft_putstr_fd(char *s, int fd)
 {

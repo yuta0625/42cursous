@@ -6,22 +6,11 @@
 /*   By: yohya <yohya@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/19 16:49:26 by yohya             #+#    #+#             */
-/*   Updated: 2025/10/21 19:42:41 by yohya            ###   ########.fr       */
+/*   Updated: 2025/10/24 14:59:00 by yohya            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
-#include <stdio.h>
-
-static size_t	ft_strlen(const char *s)
-{
-	size_t	i;
-
-	i = 0;
-	while (s[i])
-		i++;
-	return (i);
-}
+#include "libft.h"
 
 static char	*ft_start_tolong(void)
 {
@@ -39,6 +28,8 @@ char	*ft_substr(const char *s, unsigned int start, size_t len)
 	size_t	s_len;
 	size_t	i;
 
+	if (!s)
+		return (NULL);
 	s_len = ft_strlen(s);
 	if (start >= s_len)
 		return (ft_start_tolong());
@@ -60,7 +51,6 @@ char	*ft_substr(const char *s, unsigned int start, size_t len)
 // int main(void)
 // {
 // 	char *s = "abede";
-// 	unsigned int start = 10;
-// 	size_t	len = 8;
-// 	printf("%s", ft_substr(s, start, 8));
+// 	unsigned int start = 0;
+// 	printf("%s", ft_substr(s, start, sizeof(s)));
 // }

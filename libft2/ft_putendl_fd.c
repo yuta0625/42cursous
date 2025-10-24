@@ -6,22 +6,11 @@
 /*   By: yohya <yohya@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/22 12:04:30 by yohya             #+#    #+#             */
-/*   Updated: 2025/10/22 12:09:48 by yohya            ###   ########.fr       */
+/*   Updated: 2025/10/24 16:41:01 by yohya            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <fcntl.h>
-#include <unistd.h>
-
-static size_t	ft_strlen(char *s)
-{
-	size_t	len;
-
-	len = 0;
-	while (s[len])
-		len++;
-	return (len);
-}
+#include "libft.h"
 
 void	ft_putendl_fd(char *s, int fd)
 {
@@ -29,6 +18,7 @@ void	ft_putendl_fd(char *s, int fd)
 	write(fd, "\n", 1);
 }
 
+//#include <fcntl.h>
 // int	main(void)
 // {
 // 	int	fd = open("output.txt", O_WRONLY | O_CREAT | O_TRUNC, 0644);

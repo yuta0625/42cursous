@@ -6,13 +6,11 @@
 /*   By: yohya <yohya@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/17 16:38:59 by yohya             #+#    #+#             */
-/*   Updated: 2025/10/18 13:15:28 by yohya            ###   ########.fr       */
+/*   Updated: 2025/10/24 18:29:58 by yohya            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <bsd/string.h>
-#include <stdio.h>
-#include <stddef.h>
+#include "libft.h"
 
 size_t	ft_strlcat(char *dest, const char *src, size_t size)
 {
@@ -38,11 +36,14 @@ size_t	ft_strlcat(char *dest, const char *src, size_t size)
 	return (d_len + s_len);
 }
 
+// #include <bsd/string.h>
+// #include <stddef.h>
 // int	main(void)
 // {
 // 	char src[] = "abcde21123123";
 // 	char dest[] = "affa";
 // 	size_t size = 1;
 
-// 	printf("%ld", ft_strlcat(dest, src, size));
+// 	printf("%zu\n", ft_strlcat(dest, src, size));
+// 	printf("%zu", strlcat(dest, src, size));
 // }

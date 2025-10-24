@@ -6,16 +6,15 @@
 /*   By: yohya <yohya@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/20 17:36:22 by yohya             #+#    #+#             */
-/*   Updated: 2025/10/21 16:54:02 by yohya            ###   ########.fr       */
+/*   Updated: 2025/10/24 15:37:43 by yohya            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
-#include <stdio.h>
+#include "libft.h"
 
-static	int	malloc_count(long nb)
+static size_t	malloc_count(long nb)
 {
-	int	n;
+	size_t	n;
 
 	n = 1;
 	while (nb >= 10)
@@ -64,7 +63,7 @@ char	*ft_itoa(int n)
 
 // int	main(void)
 // {
-// 	int n = -4215;
+// 	int n = 0;
 // 	char *temp = ft_itoa(n);
 // 	printf("%s", temp);
 // 	free(temp);

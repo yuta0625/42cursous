@@ -6,12 +6,11 @@
 /*   By: yohya <yohya@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/17 11:47:45 by yohya             #+#    #+#             */
-/*   Updated: 2025/10/20 11:05:23 by yohya            ###   ########.fr       */
+/*   Updated: 2025/10/24 19:05:24 by yohya            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-#include <stdlib.h>
+#include "libft.h"
 
 char	*ft_strdup(const char *s)
 {
@@ -19,8 +18,6 @@ char	*ft_strdup(const char *s)
 	size_t	i;
 	size_t	j;
 
-	if (!s)
-		return (NULL);
 	i = 0;
 	while (s[i])
 		i++;

@@ -6,11 +6,11 @@
 /*   By: yohya <yohya@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/11 11:06:04 by yohya             #+#    #+#             */
-/*   Updated: 2025/10/19 15:54:21 by yohya            ###   ########.fr       */
+/*   Updated: 2025/10/24 19:03:56 by yohya            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
+#include "libft.h"
 
 static int	ft_isspace(char c)
 {
@@ -49,7 +49,7 @@ int	ft_atoi(const char *nptr)
 
 // int	main(void)
 // {
-// 	char str[] = " -1234ab567";
+// 	char str[] = " ";
 // 	printf("%d\n", ft_atoi(str));
 // 	printf("%d", atoi(str));
 // }
