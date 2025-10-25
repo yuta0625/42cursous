@@ -6,7 +6,7 @@
 #    By: yohya <yohya@student.42tokyo.jp>           +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/10/16 10:32:14 by yohya             #+#    #+#              #
-#    Updated: 2025/10/24 19:55:02 by yohya            ###   ########.fr        #
+#    Updated: 2025/10/25 18:16:34 by yohya            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -51,7 +51,10 @@ BONUS_SRCS = ft_lstnew.c \
 				ft_lstsize.c \
 				ft_lstlast.c \
 				ft_lstadd_back.c \
-				ft_lstdelone.c
+				ft_lstdelone.c \
+				ft_lstclear.c \
+				ft_lstiter.c \
+				ft_lstmap.c
 
 OBJS = $(SRCS:.c=.o)
 BONUS_OBJS = $(BONUS_SRCS:.c=.o)

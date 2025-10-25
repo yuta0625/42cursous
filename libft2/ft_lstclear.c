@@ -1,38 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
+/*   ft_lstclear.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yohya <yohya@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/22 12:15:08 by yohya             #+#    #+#             */
-/*   Updated: 2025/10/25 14:07:13 by yohya            ###   ########.fr       */
+/*   Created: 2025/10/25 14:12:42 by yohya             #+#    #+#             */
+/*   Updated: 2025/10/25 18:22:30 by yohya            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_putnbr_fd(int n, int fd)
-{
-	long	nb;
-
-	nb = (long)n;
-	if (nb < 0)
-	{
-		nb = -nb;
-		ft_putchar_fd('-', fd);
-	}
-	if (nb >= 10)
-		ft_putnbr_fd(nb / 10, fd);
-	ft_putchar_fd((nb % 10 + '0'), fd);
-}
-
-// #include <fcntl.h>
-// int	main(void)
+// static void	del(void *list)
 // {
-// 	int	fd = open("output.txt", O_WRONLY | O_CREAT | O_TRUNC, 0644);
-// 	int	n = -3539589;
-// 	ft_putnbr_fd(n, fd);
-// 	close(fd);
-// 	return (0);
+// 	free(list);
 // }
+
+void	ft_lstclear(t_list **lst, void (*del)(void *))
+{
+	t_list	*temp;
+
+	if (!lst)
+		return ;
+	while (*lst)
+	{
+		temp = (*lst)->next;
+		del((*lst)->content);
+		free((*lst));
+		(*lst) = temp;
+	}
+	(*lst) = NULL;
+}

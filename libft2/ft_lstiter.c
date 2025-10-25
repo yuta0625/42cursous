@@ -1,38 +1,46 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
+/*   ft_lstiter.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yohya <yohya@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/22 12:15:08 by yohya             #+#    #+#             */
-/*   Updated: 2025/10/25 14:07:13 by yohya            ###   ########.fr       */
+/*   Created: 2025/10/25 14:48:20 by yohya             #+#    #+#             */
+/*   Updated: 2025/10/25 15:33:30 by yohya            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_putnbr_fd(int n, int fd)
+void	ft_lstiter(t_list *lst, void (*f)(void *))
 {
-	long	nb;
-
-	nb = (long)n;
-	if (nb < 0)
+	while (lst)
 	{
-		nb = -nb;
-		ft_putchar_fd('-', fd);
+		f(lst ->content);
+		lst = lst ->next;
 	}
-	if (nb >= 10)
-		ft_putnbr_fd(nb / 10, fd);
-	ft_putchar_fd((nb % 10 + '0'), fd);
 }
 
-// #include <fcntl.h>
+// void	to_upper(void *s1)
+// {
+// 	char	*word;
+
+// 	word = (char *)s1;
+// 	while (*word)
+// 	{
+// 		if (*word >= 'a' && *word <= 'z')
+// 			*word -= 32;
+// 		word++;
+// 	}
+// }
+
 // int	main(void)
 // {
-// 	int	fd = open("output.txt", O_WRONLY | O_CREAT | O_TRUNC, 0644);
-// 	int	n = -3539589;
-// 	ft_putnbr_fd(n, fd);
-// 	close(fd);
+// 	char *str = ft_strdup("hello");
+// 	t_list	*s1 = ft_lstnew(str);
+// 	ft_lstiter(s1, to_upper);
+// 	printf("%s", (char *)s1 ->content);
+// 	free(s1 ->content);
+// 	free(s1);
 // 	return (0);
 // }
