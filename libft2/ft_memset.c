@@ -6,7 +6,7 @@
 /*   By: yohya <yohya@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/17 10:46:21 by yohya             #+#    #+#             */
-/*   Updated: 2025/10/24 17:18:56 by yohya            ###   ########.fr       */
+/*   Updated: 2025/10/26 12:02:18 by yohya            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,6 @@ void	*ft_memset(void *s, int c, size_t n)
 	return (s);
 }
 
-// #include <string.h>
 // int	main(void)
 // {
 // 	unsigned char	buf[0];

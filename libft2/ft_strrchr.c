@@ -6,12 +6,11 @@
 /*   By: yohya <yohya@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/18 13:18:37 by yohya             #+#    #+#             */
-/*   Updated: 2025/10/24 18:39:42 by yohya            ###   ########.fr       */
+/*   Updated: 2025/10/26 12:12:38 by yohya            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <string.h>
-#include <stdio.h>
+#include "libft.h"
 
 char	*ft_strrchr(const char *s, int c)
 {

@@ -6,7 +6,7 @@
 /*   By: yohya <yohya@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/17 12:49:33 by yohya             #+#    #+#             */
-/*   Updated: 2025/10/24 18:18:56 by yohya            ###   ########.fr       */
+/*   Updated: 2025/10/26 12:03:07 by yohya            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,6 @@ void	*ft_memmove(void *dest, const void *src, size_t n)
 	return (dest);
 }
 
-// #include <string.h>
 // int	main(void)
 // {
 // 	unsigned char src[] = "apple";

@@ -6,12 +6,11 @@
 /*   By: yohya <yohya@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/21 18:27:06 by yohya             #+#    #+#             */
-/*   Updated: 2025/10/21 18:47:18 by yohya            ###   ########.fr       */
+/*   Updated: 2025/10/26 12:11:02 by yohya            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-#include <ctype.h>
+#include "libft.h"
 
 void	ft_striteri(char *s, void (*f)(unsigned int, char*))
 {

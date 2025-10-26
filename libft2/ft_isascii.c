@@ -6,12 +6,9 @@
 /*   By: yohya <yohya@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/17 10:28:44 by yohya             #+#    #+#             */
-/*   Updated: 2025/10/17 10:36:28 by yohya            ###   ########.fr       */
+/*   Updated: 2025/10/26 14:35:46 by yohya            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-#include <ctype.h>
-#include <stdio.h>
 
 int	ft_isascii(int c)
 {

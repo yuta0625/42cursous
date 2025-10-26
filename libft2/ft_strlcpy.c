@@ -6,7 +6,7 @@
 /*   By: yohya <yohya@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/08 12:20:50 by yohya             #+#    #+#             */
-/*   Updated: 2025/10/24 18:30:33 by yohya            ###   ########.fr       */
+/*   Updated: 2025/10/26 12:03:44 by yohya            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,8 +32,6 @@ size_t	ft_strlcpy(char *dest, const char *src, size_t size)
 	return (i);
 }
 
-// #include <bsd/string.h>
-// #include <stddef.h>
 // int	main(void)
 // {
 // 	char src[] = " ";

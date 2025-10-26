@@ -6,16 +6,11 @@
 /*   By: yohya <yohya@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/25 15:57:44 by yohya             #+#    #+#             */
-/*   Updated: 2025/10/25 18:20:59 by yohya            ###   ########.fr       */
+/*   Updated: 2025/10/26 14:29:59 by yohya            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-
-// static void	del(void *list)
-// {
-// 	free(list);
-// }
 
 t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 {
@@ -23,14 +18,17 @@ t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 	t_list	*new_node;
 	void	*new_content;
 
+	if (!lst || !f || !del)
+		return (NULL);
 	new_list = NULL;
 	while (lst)
 	{
 		new_content = f(lst ->content);
 		new_node = ft_lstnew(new_content);
-		if (!new_content)
+		if (!new_node)
 		{
-			del(new_content);
+			if (new_content)
+				del(new_content);
 			ft_lstclear(&new_list, del);
 			return (NULL);
 		}
@@ -40,12 +38,16 @@ t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 	return (new_list);
 }
 
+// static void	del(void *list)
+// {
+// 	free(list);
+// }
+
 // void	*to_upper(void *s)
 // {
 // 	char	*str;
 // 	char	*ret;
 // 	size_t	i;
-
 // 	if (!s)
 // 		return (NULL);
 // 	str = (char *)s;

@@ -6,12 +6,9 @@
 /*   By: yohya <yohya@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/17 10:17:11 by yohya             #+#    #+#             */
-/*   Updated: 2025/10/17 11:01:38 by yohya            ###   ########.fr       */
+/*   Updated: 2025/10/26 14:35:30 by yohya            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-#include <ctype.h>
-#include <stdio.h>
 
 int	ft_isalnum(int c)
 {

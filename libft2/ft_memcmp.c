@@ -6,7 +6,7 @@
 /*   By: yohya <yohya@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/18 16:41:49 by yohya             #+#    #+#             */
-/*   Updated: 2025/10/24 18:54:25 by yohya            ###   ########.fr       */
+/*   Updated: 2025/10/26 12:02:09 by yohya            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,6 @@ int	ft_memcmp(const void *s1, const void *s2, size_t n)
 	return (0);
 }
 
-// #include <string.h>
 // int	main(void)
 // {
 // 	char buf[] = "ABCD5EFGH";

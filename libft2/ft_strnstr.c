@@ -6,7 +6,7 @@
 /*   By: yohya <yohya@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/18 14:04:21 by yohya             #+#    #+#             */
-/*   Updated: 2025/10/24 19:03:24 by yohya            ###   ########.fr       */
+/*   Updated: 2025/10/26 13:20:10 by yohya            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,11 +17,11 @@ char	*ft_strnstr(const char *big, const char *little, size_t len)
 	size_t	j;
 	size_t	k;
 
-	j = 0;
 	if (*little == '\0')
 		return ((char *)big);
 	if (len == 0)
 		return (NULL);
+	j = 0;
 	while (j < len && big[j])
 	{
 		k = 0;

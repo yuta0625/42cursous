@@ -6,7 +6,7 @@
 /*   By: yohya <yohya@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/22 16:49:51 by yohya             #+#    #+#             */
-/*   Updated: 2025/10/23 15:47:33 by yohya            ###   ########.fr       */
+/*   Updated: 2025/10/26 12:55:14 by yohya            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 
 void	ft_lstadd_front(t_list **lst, t_list *new)
 {
+	if (!lst || !new)
+		return ;
 	new ->next = *lst;
 	*lst = new;
 }

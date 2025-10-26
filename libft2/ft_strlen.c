@@ -6,12 +6,11 @@
 /*   By: yohya <yohya@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/09 18:50:39 by yohya             #+#    #+#             */
-/*   Updated: 2025/10/19 15:01:08 by yohya            ###   ########.fr       */
+/*   Updated: 2025/10/26 12:11:53 by yohya            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-#include <string.h>
+#include "libft.h"
 
 size_t	ft_strlen(const char *s)
 {

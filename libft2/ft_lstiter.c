@@ -6,7 +6,7 @@
 /*   By: yohya <yohya@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/25 14:48:20 by yohya             #+#    #+#             */
-/*   Updated: 2025/10/25 15:33:30 by yohya            ###   ########.fr       */
+/*   Updated: 2025/10/26 12:56:27 by yohya            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 
 void	ft_lstiter(t_list *lst, void (*f)(void *))
 {
+	if (!lst || !f)
+		return ;
 	while (lst)
 	{
 		f(lst ->content);

@@ -6,7 +6,7 @@
 /*   By: yohya <yohya@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/18 10:27:20 by yohya             #+#    #+#             */
-/*   Updated: 2025/10/24 18:33:51 by yohya            ###   ########.fr       */
+/*   Updated: 2025/10/26 15:20:39 by yohya            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,6 @@ char	*ft_strchr(const char *s, int c)
 	return (NULL);
 }
 
-// #include <string.h>
 // int	main(void)
 // {
 // 	char	test[] = "hhhgjjjjka";

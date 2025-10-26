@@ -6,39 +6,21 @@
 /*   By: yohya <yohya@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/18 18:12:50 by yohya             #+#    #+#             */
-/*   Updated: 2025/10/21 18:02:17 by yohya            ###   ########.fr       */
+/*   Updated: 2025/10/26 12:41:14 by yohya            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
-#include <stdio.h>
-#include <stdint.h>
-#include <stddef.h>
-
-static void	*ft_memset(void *s, int c, size_t n)
-{
-	unsigned char		*p;
-	size_t				i;
-
-	p = (unsigned char *)s;
-	i = 0;
-	while (i < n)
-	{
-		p[i] = (unsigned char)c;
-		i++;
-	}
-	return (s);
-}
+#include "libft.h"
 
 void	*ft_calloc(size_t nmemb, size_t size)
 {
-	char	*temp;
-	size_t	total;
-	char	*empty;
+	unsigned char	*temp;
+	size_t			total;
+	unsigned char	*empty;
 
 	if (nmemb == 0 || size == 0)
 	{
-		empty = (char *)malloc(1);
+		empty = (unsigned char *)malloc(1);
 		if (!empty)
 			return (NULL);
 		return (empty);
@@ -46,7 +28,7 @@ void	*ft_calloc(size_t nmemb, size_t size)
 	if (size > SIZE_MAX / nmemb)
 		return (NULL);
 	total = nmemb * size;
-	temp = (char *)malloc(sizeof(char ) * total);
+	temp = (unsigned char *)malloc(sizeof(unsigned char) * total);
 	if (!temp)
 		return (NULL);
 	ft_memset(temp, 0, total);

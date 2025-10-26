@@ -6,7 +6,7 @@
 /*   By: yohya <yohya@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/22 12:15:08 by yohya             #+#    #+#             */
-/*   Updated: 2025/10/25 14:07:13 by yohya            ###   ########.fr       */
+/*   Updated: 2025/10/26 12:03:16 by yohya            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,6 @@ void	ft_putnbr_fd(int n, int fd)
 	ft_putchar_fd((nb % 10 + '0'), fd);
 }
 
-// #include <fcntl.h>
 // int	main(void)
 // {
 // 	int	fd = open("output.txt", O_WRONLY | O_CREAT | O_TRUNC, 0644);

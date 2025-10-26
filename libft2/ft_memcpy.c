@@ -6,7 +6,7 @@
 /*   By: yohya <yohya@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/17 12:15:13 by yohya             #+#    #+#             */
-/*   Updated: 2025/10/24 18:16:32 by yohya            ###   ########.fr       */
+/*   Updated: 2025/10/26 12:02:14 by yohya            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,6 @@ void	*ft_memcpy(void *dest, const void *src, size_t len)
 	return (dest);
 }
 
-// #include <string.h>
 // int	main(void)
 // {
 // 	unsigned char src[] = "aabd";

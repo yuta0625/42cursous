@@ -6,12 +6,9 @@
 /*   By: yohya <yohya@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/17 09:58:59 by yohya             #+#    #+#             */
-/*   Updated: 2025/10/17 11:01:45 by yohya            ###   ########.fr       */
+/*   Updated: 2025/10/26 14:35:39 by yohya            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-#include <ctype.h>
-#include <stdio.h>
 
 int	ft_isalpha(int c)
 {

@@ -6,12 +6,9 @@
 /*   By: yohya <yohya@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/17 14:28:57 by yohya             #+#    #+#             */
-/*   Updated: 2025/10/17 14:39:38 by yohya            ###   ########.fr       */
+/*   Updated: 2025/10/26 15:21:23 by yohya            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-#include <ctype.h>
-#include <stdio.h>
 
 int	ft_toupper(int c)
 {

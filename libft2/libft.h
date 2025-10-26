@@ -6,18 +6,17 @@
 /*   By: yohya <yohya@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/19 14:32:21 by yohya             #+#    #+#             */
-/*   Updated: 2025/10/25 18:16:15 by yohya            ###   ########.fr       */
+/*   Updated: 2025/10/26 13:26:28 by yohya            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
 # define LIBFT_H
 
-# include <stdio.h>
 # include <stdlib.h>
 # include <unistd.h>
-# include <string.h>
-# include <bsd/string.h>
+# include <stddef.h>
+# include <stdint.h>
 
 typedef struct s_list
 {

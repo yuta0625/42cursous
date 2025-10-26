@@ -6,12 +6,9 @@
 /*   By: yohya <yohya@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/17 10:38:54 by yohya             #+#    #+#             */
-/*   Updated: 2025/10/17 11:01:59 by yohya            ###   ########.fr       */
+/*   Updated: 2025/10/26 14:36:00 by yohya            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-#include <ctype.h>
-#include <stdio.h>
 
 int	ft_isprint(int c)
 {

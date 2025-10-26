@@ -6,7 +6,7 @@
 /*   By: yohya <yohya@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/23 17:14:57 by yohya             #+#    #+#             */
-/*   Updated: 2025/10/24 18:20:34 by yohya            ###   ########.fr       */
+/*   Updated: 2025/10/26 13:06:02 by yohya            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,6 @@ void	ft_lstadd_back(t_list **lst, t_list *new)
 {
 	t_list	*ret;
 
-	if (!lst || !new)
-		return ;
 	if (*lst == NULL)
 	{
 		*lst = new;

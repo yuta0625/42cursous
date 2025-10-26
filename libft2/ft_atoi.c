@@ -6,11 +6,9 @@
 /*   By: yohya <yohya@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/11 11:06:04 by yohya             #+#    #+#             */
-/*   Updated: 2025/10/24 19:03:56 by yohya            ###   ########.fr       */
+/*   Updated: 2025/10/26 14:35:10 by yohya            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-#include "libft.h"
 
 static int	ft_isspace(char c)
 {
