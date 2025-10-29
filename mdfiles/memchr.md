@@ -34,3 +34,35 @@ int memcmp(const void *buf1, const void *buf2,size_t n);
 正の値　：　buf1 ＞ buf2
 ０　 　 ：　buf1 ＝ buf2
 負の値　：　buf1 ＜ buf2
+#include "libft.h"
+
+void	*ft_memchr(const void *s, int c, size_t n)
+{
+	unsigned char	*str;
+	unsigned char	uc;
+
+	uc = (unsigned char)c;
+	str = (unsigned char *)s;
+	while (n--)
+	{
+		if (*str == uc)
+			return (str);
+		str++;
+	}
+	return (NULL);
+}
+例を通したイメージ
+
+もし n = 5 なら、5バイトを1つずつ確認する必要があります。
+
+1回目 → 比較後 n は 4
+
+2回目 → 比較後 n は 3
+
+3回目 → 比較後 n は 2
+
+4回目 → 比較後 n は 1
+
+5回目 → 比較後 n は 0 → ループ終了
+
+つまり 5回きっちり回る
