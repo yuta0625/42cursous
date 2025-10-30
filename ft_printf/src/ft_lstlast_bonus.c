@@ -1,24 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_tolower.c                                       :+:      :+:    :+:   */
+/*   ft_lstlast.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yohya <yohya@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/17 14:40:13 by yohya             #+#    #+#             */
-/*   Updated: 2025/10/29 11:04:44 by yohya            ###   ########.fr       */
+/*   Created: 2025/10/23 15:51:38 by yohya             #+#    #+#             */
+/*   Updated: 2025/10/26 13:07:14 by yohya            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_tolower(int c)
+#include "libft.h"
+
+t_list	*ft_lstlast(t_list *lst)
 {
-	if (c >= 'A' && c <= 'Z')
-		return (c + 32);
-	return (c);
+	if (!lst)
+		return (NULL);
+	while (lst ->next != NULL)
+		lst = lst ->next;
+	return (lst);
 }
 
 // int	main(void)
 // {
-// 	printf("%d\n", tolower(45));
-// 	printf("%d\n", ft_tolower(45));
+// 	t_list *a = ft_lstnew("hello");
+// 	t_list *b = ft_lstnew("world");
+// 	t_list *c = ft_lstnew("42tokyo");
+
+// 	a ->next = b;
+// 	b ->next = c;
+// 	t_list *result = ft_lstlast(b);
+// 	printf("%s", (char *)result ->next);
 // }

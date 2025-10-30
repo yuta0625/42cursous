@@ -1,24 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_tolower.c                                       :+:      :+:    :+:   */
+/*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yohya <yohya@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/17 14:40:13 by yohya             #+#    #+#             */
-/*   Updated: 2025/10/29 11:04:44 by yohya            ###   ########.fr       */
+/*   Created: 2025/09/09 18:50:39 by yohya             #+#    #+#             */
+/*   Updated: 2025/10/26 12:11:53 by yohya            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_tolower(int c)
+#include "libft.h"
+
+size_t	ft_strlen(const char *s)
 {
-	if (c >= 'A' && c <= 'Z')
-		return (c + 32);
-	return (c);
+	size_t	i;
+
+	i = 0;
+	while (s[i])
+		i++;
+	return (i);
 }
 
 // int	main(void)
 // {
-// 	printf("%d\n", tolower(45));
-// 	printf("%d\n", ft_tolower(45));
+// 	char str[] = "strlen";
+// 	printf("%d\n", ft_strlen(str));
+// 	char str1[] = "strlen";
+// 	printf("%lu", strlen(str1));
 // }

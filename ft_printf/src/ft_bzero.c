@@ -1,24 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_tolower.c                                       :+:      :+:    :+:   */
+/*   ft_bzero.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yohya <yohya@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/17 14:40:13 by yohya             #+#    #+#             */
-/*   Updated: 2025/10/29 11:04:44 by yohya            ###   ########.fr       */
+/*   Created: 2025/10/18 11:20:35 by yohya             #+#    #+#             */
+/*   Updated: 2025/10/24 17:26:42 by yohya            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_tolower(int c)
+#include "libft.h"
+
+void	ft_bzero(void *s, size_t n)
 {
-	if (c >= 'A' && c <= 'Z')
-		return (c + 32);
-	return (c);
+	unsigned char	*p;
+	size_t			i;
+
+	p = (unsigned char *)s;
+	i = 0;
+	while (i < n)
+	{
+		p[i] = '\0';
+		i++;
+	}
 }
 
-// int	main(void)
+// #include <string.h>
+// int main(void)
 // {
-// 	printf("%d\n", tolower(45));
-// 	printf("%d\n", ft_tolower(45));
+// 	char	buf[] = "hello";
+// 	ft_bzero(buf+2, 2);
+// 	printf("%s", buf);
 // }

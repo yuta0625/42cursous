@@ -1,24 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_tolower.c                                       :+:      :+:    :+:   */
+/*   ft_printf.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yohya <yohya@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/17 14:40:13 by yohya             #+#    #+#             */
-/*   Updated: 2025/10/29 11:04:44 by yohya            ###   ########.fr       */
+/*   Created: 2025/10/28 15:57:18 by yohya             #+#    #+#             */
+/*   Updated: 2025/10/30 18:46:20 by yohya            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_tolower(int c)
-{
-	if (c >= 'A' && c <= 'Z')
-		return (c + 32);
-	return (c);
-}
+#ifndef FT_PRINTF_H
+# define FT_PRINTF_H
 
-// int	main(void)
-// {
-// 	printf("%d\n", tolower(45));
-// 	printf("%d\n", ft_tolower(45));
-// }
+# include "src/libft.h"
+# include <stdarg.h>
+
+int	ft_printf(const char *format, ...);
+int	ft_putchar(int c);
+int	ft_putstr(char *str);
+int	ft_putptr(void *ptr);
+int	ft_putnbr(int n);
+int	ft_putunnbr(unsigned int n);
+int	ft_puthex_lowercase(unsigned int n);
+int	ft_puthex_uppercase(unsigned int n);
+
+#endif

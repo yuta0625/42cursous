@@ -1,24 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_tolower.c                                       :+:      :+:    :+:   */
+/*   ft_isalnum.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yohya <yohya@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/17 14:40:13 by yohya             #+#    #+#             */
-/*   Updated: 2025/10/29 11:04:44 by yohya            ###   ########.fr       */
+/*   Created: 2025/10/17 10:17:11 by yohya             #+#    #+#             */
+/*   Updated: 2025/10/26 14:35:30 by yohya            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_tolower(int c)
+int	ft_isalnum(int c)
 {
-	if (c >= 'A' && c <= 'Z')
-		return (c + 32);
-	return (c);
+	if ((c >= '0' && c <= '9')
+		|| (c >= 'a' && c <= 'z')
+		|| (c >= 'A' && c <= 'Z'))
+		return (1);
+	return (0);
 }
 
 // int	main(void)
 // {
-// 	printf("%d\n", tolower(45));
-// 	printf("%d\n", ft_tolower(45));
+// 	printf("%d\n", isalnum(65));
+// 	printf("%d\n", ft_isalnum(65));
 // }

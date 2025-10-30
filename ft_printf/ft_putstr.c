@@ -6,11 +6,11 @@
 /*   By: yohya <yohya@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/28 17:44:52 by yohya             #+#    #+#             */
-/*   Updated: 2025/10/29 15:28:52 by yohya            ###   ########.fr       */
+/*   Updated: 2025/10/30 17:00:02 by yohya            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftprintf.h"
+#include "ft_printf.h"
 
 int	ft_putstr(char *str)
 {

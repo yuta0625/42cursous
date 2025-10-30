@@ -6,7 +6,7 @@
 /*   By: yohya <yohya@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/25 15:57:44 by yohya             #+#    #+#             */
-/*   Updated: 2025/10/26 14:29:59 by yohya            ###   ########.fr       */
+/*   Updated: 2025/10/28 13:53:45 by yohya            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,14 +24,11 @@ t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 	while (lst)
 	{
 		new_content = f(lst ->content);
+		if (!new_content)
+			return (ft_lstclear(&new_list, del), NULL);
 		new_node = ft_lstnew(new_content);
 		if (!new_node)
-		{
-			if (new_content)
-				del(new_content);
-			ft_lstclear(&new_list, del);
-			return (NULL);
-		}
+			return (del(new_content), ft_lstclear(&new_list, del), NULL);
 		ft_lstadd_back(&new_list, new_node);
 		lst = lst ->next;
 	}

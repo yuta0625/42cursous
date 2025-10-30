@@ -1,24 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_tolower.c                                       :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yohya <yohya@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/17 14:40:13 by yohya             #+#    #+#             */
-/*   Updated: 2025/10/29 11:04:44 by yohya            ###   ########.fr       */
+/*   Created: 2025/09/17 11:47:45 by yohya             #+#    #+#             */
+/*   Updated: 2025/10/24 19:05:24 by yohya            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_tolower(int c)
+#include "libft.h"
+
+char	*ft_strdup(const char *s)
 {
-	if (c >= 'A' && c <= 'Z')
-		return (c + 32);
-	return (c);
+	char	*ret;
+	size_t	i;
+	size_t	j;
+
+	i = 0;
+	while (s[i])
+		i++;
+	ret = (char *)malloc(sizeof(char) *(i + 1));
+	if (!ret)
+		return (NULL);
+	j = 0;
+	while (j < i)
+	{
+		ret[j] = s[j];
+		j++;
+	}
+	ret[j] = '\0';
+	return (ret);
 }
 
-// int	main(void)
+// int main(void)
 // {
-// 	printf("%d\n", tolower(45));
-// 	printf("%d\n", ft_tolower(45));
+// 	char *src = "hello";
+// 	printf("%s", ft_strdup(src));
 // }

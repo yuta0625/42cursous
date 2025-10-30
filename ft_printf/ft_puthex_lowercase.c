@@ -1,24 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_tolower.c                                       :+:      :+:    :+:   */
+/*   ft_puthex_lowercase.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yohya <yohya@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/17 14:40:13 by yohya             #+#    #+#             */
-/*   Updated: 2025/10/29 11:04:44 by yohya            ###   ########.fr       */
+/*   Created: 2025/10/30 11:24:02 by yohya             #+#    #+#             */
+/*   Updated: 2025/10/30 16:59:22 by yohya            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_tolower(int c)
+#include "ft_printf.h"
+
+static int	ft_hexadecimal(unsigned long n)
 {
-	if (c >= 'A' && c <= 'Z')
-		return (c + 32);
-	return (c);
+	int				i;
+	char			*hex;
+
+	i = 0;
+	hex = "0123456789abcdef";
+	if (n >= 16)
+		i += ft_hexadecimal(n / 16);
+	i += ft_putchar(hex[n % 16]);
+	return (i);
 }
 
-// int	main(void)
-// {
-// 	printf("%d\n", tolower(45));
-// 	printf("%d\n", ft_tolower(45));
-// }
+int	ft_puthex_lowercase(unsigned int n)
+{
+	unsigned long	nb;
+	int				count;
+
+	nb = (unsigned long)n;
+	count = 0;
+	count += ft_hexadecimal(nb);
+	return (count);
+}
