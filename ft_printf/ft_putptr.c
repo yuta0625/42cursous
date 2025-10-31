@@ -6,7 +6,7 @@
 /*   By: yohya <yohya@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/29 15:33:34 by yohya             #+#    #+#             */
-/*   Updated: 2025/10/30 16:59:52 by yohya            ###   ########.fr       */
+/*   Updated: 2025/10/31 12:36:26 by yohya            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,10 +30,9 @@ int	ft_putptr(void *ptr)
 	int	count;
 
 	count = 0;
+	if (!ptr)
+		return ((int)write(1, "(nil)", 5));
 	count += write(1, "0x", 2);
-	if (ptr == NULL)
-		count += write(1, "0", 1);
-	else
-		count += ft_hexadecimal((unsigned long long)ptr);
+	count += ft_hexadecimal((unsigned long long)ptr);
 	return (count);
 }

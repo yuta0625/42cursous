@@ -6,7 +6,7 @@
 /*   By: yohya <yohya@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/28 17:44:52 by yohya             #+#    #+#             */
-/*   Updated: 2025/10/30 17:00:02 by yohya            ###   ########.fr       */
+/*   Updated: 2025/10/31 12:49:33 by yohya            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@ int	ft_putstr(char *str)
 
 	i = 0;
 	count = 0;
+	if (!str)
+		return ((int)write(1, "(null)", 6));
 	while (str[i])
 	{
 		write(1, &str[i], 1);
