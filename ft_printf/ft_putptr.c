@@ -6,7 +6,7 @@
 /*   By: yohya <yohya@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/29 15:33:34 by yohya             #+#    #+#             */
-/*   Updated: 2025/10/31 12:36:26 by yohya            ###   ########.fr       */
+/*   Updated: 2025/11/04 19:55:20 by yohya            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,25 +14,34 @@
 
 static int	ft_hexadecimal(unsigned long long n)
 {
-	int				i;
-	char			*hex;
+	int		i;
+	char	*ntr;
 
 	i = 0;
-	hex = "0123456789abcdef";
-	if (n >= 16)
-		i += ft_hexadecimal(n / 16);
-	i += ft_putchar((hex[n % 16]));
+	ntr = ft_itoa_hex(n);
+	i += ft_putstr(ntr);
+	free(ntr);
 	return (i);
 }
 
 int	ft_putptr(void *ptr)
 {
-	int	count;
+	int	m;
 
-	count = 0;
+	m = 0;
 	if (!ptr)
 		return ((int)write(1, "(nil)", 5));
-	count += write(1, "0x", 2);
-	count += ft_hexadecimal((unsigned long long)ptr);
-	return (count);
+	m += write(1, "0x", 2);
+	if (m == -1)
+		return (-1);
+	m += ft_hexadecimal((unsigned long long)ptr);
+	return (m);
 }
+
+// #include <stdio.h>
+// int main(void)
+// {
+// 	void *ptr = "4395";
+// 	ft_printf("%p\n", ptr);
+// 	printf("%p", ptr);
+// }

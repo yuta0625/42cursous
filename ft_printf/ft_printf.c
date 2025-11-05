@@ -6,7 +6,7 @@
 /*   By: yohya <yohya@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/28 16:26:51 by yohya             #+#    #+#             */
-/*   Updated: 2025/10/31 12:18:16 by yohya            ###   ########.fr       */
+/*   Updated: 2025/11/04 20:25:05 by yohya            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,26 +14,28 @@
 
 static int	ft_handle_format(char spec, va_list ap)
 {
-	int	count;
+	int	w;
 
-	count = 0;
+	w = 0;
+	if (spec == '\0')
+		return (0);
 	if (spec == 'c')
-		count += ft_putchar(va_arg(ap, int));
+		w += ft_putchar(va_arg(ap, int));
 	else if (spec == 's')
-		count += ft_putstr(va_arg(ap, char *));
+		w += ft_putstr(va_arg(ap, char *));
 	else if (spec == 'p')
-		count += ft_putptr(va_arg(ap, void *));
+		w += ft_putptr(va_arg(ap, void *));
 	else if (spec == 'd' || spec == 'i')
-		count += ft_putnbr(va_arg(ap, int));
+		w += ft_putnbr(va_arg(ap, int));
 	else if (spec == 'u')
-		count += ft_putunnbr(va_arg(ap, unsigned int));
+		w += ft_putunnbr(va_arg(ap, unsigned int));
 	else if (spec == 'x')
-		count += ft_puthex_lowercase(va_arg(ap, unsigned int));
+		w += ft_puthex_lowercase(va_arg(ap, unsigned int));
 	else if (spec == 'X')
-		count += ft_puthex_uppercase(va_arg(ap, unsigned int));
+		w += ft_puthex_uppercase(va_arg(ap, unsigned int));
 	else if (spec == '%')
-		count += ft_putchar('%');
-	return (count);
+		w += ft_putchar('%');
+	return (w);
 }
 
 int	ft_printf(const char *format, ...)
@@ -44,6 +46,8 @@ int	ft_printf(const char *format, ...)
 
 	i = 0;
 	count = 0;
+	if (!format)
+		return (-1);
 	va_start(ap, format);
 	while (format[i])
 	{
@@ -77,12 +81,19 @@ int	ft_printf(const char *format, ...)
 // 	int	result = ft_printf("aafgaoi");
 // 	int result1 = printf("aafgaoi");
 // 	ft_printf("この文字は: %c\n" ,c);
+// 	printf("この文字は: %c\n" ,c);
 // 	ft_printf("この文字列は: %s\n",str);
+// 	printf("この文字列は: %s\n",str);
 // 	ft_printf("この16進数変換の値は: %p\n", ptr);
+// 	printf("この16進数変換の値は: %p\n", ptr);
 // 	ft_printf("この10進数の値は: %i %i\n", n, j);
+// 	printf("この10進数の値は: %i %i\n", n, j);
 // 	ft_printf("この数値の10進数の値は: %u\n", ux);
+// 	printf("この数値の10進数の値は: %u\n", ux);
 // 	ft_printf("この数値の16進数のlowercase値は: %x\n", xx);
+// 	printf("この数値の16進数のlowercase値は: %x\n", xx);
 // 	ft_printf("この数値の16進数のupeercase値は:: %X\n", xx);
+// 	printf("この数値の16進数のupeercase値は:: %X\n", xx);
 // 	ft_printf("この地域の今年の収穫量は前年の50%%である\n");
 // 	printf("この地域の今年の収穫量は前年の50%%である\n");
 // 	ft_printf("%d\n", result1);

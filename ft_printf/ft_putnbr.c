@@ -6,26 +6,25 @@
 /*   By: yohya <yohya@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/29 17:40:34 by yohya             #+#    #+#             */
-/*   Updated: 2025/10/30 16:59:40 by yohya            ###   ########.fr       */
+/*   Updated: 2025/11/04 19:19:18 by yohya            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
+#include "libft/libft.h"
 
 int	ft_putnbr(int n)
 {
 	long	nb;
-	int		count;
+	char	*str;
+	int		ns;
 
 	nb = (long)n;
-	count = 0;
-	if (nb < 0)
-	{
-		count += ft_putchar('-');
-		nb = -nb;
-	}
-	if (nb >= 10)
-		count += ft_putnbr(nb / 10);
-	count += ft_putchar((nb % 10) + '0');
-	return (count);
+	ns = 0;
+	str = ft_itoa(nb);
+	if (!str)
+		return (0);
+	ns += ft_putstr(str);
+	free(str);
+	return (ns);
 }

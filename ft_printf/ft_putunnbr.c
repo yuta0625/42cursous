@@ -6,28 +6,27 @@
 /*   By: yohya <yohya@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/30 10:34:35 by yohya             #+#    #+#             */
-/*   Updated: 2025/10/30 17:00:10 by yohya            ###   ########.fr       */
+/*   Updated: 2025/11/04 20:44:29 by yohya            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
+#include "libft/libft.h"
 
 int	ft_putunnbr(unsigned int n)
 {
 	unsigned long	nb;
-	int				count;
+	char			*str;
+	int				ns;
 
 	nb = (unsigned long)n;
-	count = 0;
-	if (nb < 0)
-	{
-		count += ft_putchar('-');
-		nb = -nb;
-	}
-	if (nb >= 10)
-		count += ft_putunnbr(nb / 10);
-	count += ft_putchar((nb % 10) + '0');
-	return (count);
+	ns = 0;
+	str = ft_itoa_plus(nb);
+	if (!str)
+		return (0);
+	ns += ft_putstr(str);
+	free(str);
+	return (ns);
 }
 
 // static void	ft_putchar_ret(int c)

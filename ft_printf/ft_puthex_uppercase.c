@@ -6,32 +6,35 @@
 /*   By: yohya <yohya@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/30 14:00:16 by yohya             #+#    #+#             */
-/*   Updated: 2025/10/30 16:59:32 by yohya            ###   ########.fr       */
+/*   Updated: 2025/11/04 20:23:26 by yohya            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
+#include "libft/libft.h"
 
-static int	ft_hexadecimal(unsigned long n)
+static int	ft_hexadecimal_uppercase(unsigned int n)
 {
-	int				i;
-	char			*hex;
+	int		i;
+	char	*let;
 
 	i = 0;
-	hex = "0123456789abcdef";
-	if (n >= 16)
-		i += ft_hexadecimal(n / 16);
-	i += ft_putchar(ft_toupper(hex[n % 16]));
+	let = ft_itoa_hex_toupper(n);
+	i += ft_putstr(let);
+	free(let);
 	return (i);
 }
 
 int	ft_puthex_uppercase(unsigned int n)
 {
-	unsigned long	nb;
-	int				count;
+	int	q;
 
-	nb = (unsigned long)n;
-	count = 0;
-	count += ft_hexadecimal(nb);
-	return (count);
+	q = 0;
+	if (n == 0)
+	{
+		q += ft_putchar('0');
+		return (q);
+	}
+	q += ft_hexadecimal_uppercase(n);
+	return (q);
 }
