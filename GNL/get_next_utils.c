@@ -6,7 +6,7 @@
 /*   By: yohya <yohya@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/01 15:09:44 by yohya             #+#    #+#             */
-/*   Updated: 2025/11/05 17:06:17 by yohya            ###   ########.fr       */
+/*   Updated: 2025/11/05 18:34:13 by yohya            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,21 +56,15 @@ char	*gnl_strjoin_free(char *old, const char *buf, ssize_t n)
 			old_len++;
 	new_str = (char *)malloc(sizeof(char) * (old_len + (size_t)n + 1));
 	if (!new_str)
-	{
-		free(old);
-		return (NULL);
-	}
+		return (free(old), NULL);
 	while (i < old_len)
 	{
 		new_str[i] = old[i];
 		i++;
 	}
 	while (j < (size_t)n)
-	{
-		new_str[i + j] = buf[j];
-		j++;
-	}
-	new_str[i + j] = '\0';
+		new_str[i++] = buf[j++];
+	new_str[i] = '\0';
 	free(old);
 	return (new_str);
 }
@@ -106,23 +100,17 @@ char	*trim_stash(char *stash)
 	int		nl;
 	int		len;
 	int		j;
-	char	*rest; 
+	char	*rest;
 
 	nl = find_nl(stash);
 	if (nl == -1)
-	{
-		free(stash);
-		return (NULL);
-	}
+		return (free(stash), NULL);
 	len = 0;
 	while (stash[nl + len + 1])
 		len++;
 	rest = (char *)malloc(sizeof(char) * (len + 1));
 	if (!rest)
-	{
-		free(stash);
-		return (NULL);
-	}
+		return (free(stash), NULL);
 	j = 0;
 	while (j < len)
 	{
