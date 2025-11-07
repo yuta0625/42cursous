@@ -6,7 +6,7 @@
 /*   By: yohya <yohya@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/28 16:26:51 by yohya             #+#    #+#             */
-/*   Updated: 2025/11/04 20:25:05 by yohya            ###   ########.fr       */
+/*   Updated: 2025/11/07 10:55:35 by yohya            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,11 +38,37 @@ static int	ft_handle_format(char spec, va_list ap)
 	return (w);
 }
 
+static int	print_text(const char *fmt, int *n)
+{
+	int	wr;
+
+	wr = (int)write(1, &fmt[*n], 1);
+	if (wr == -1)
+		return (-1);
+	(*n)++;
+	return (1);
+}
+
+static	int	print_conv(const char *fmt, int *n, va_list *ap)
+{
+	int	l;
+
+	(*n)++;
+	if (!fmt[*n])
+		return (-1);
+	l = ft_handle_format(fmt[*n], *ap);
+	if (l < 0)
+		return (-1);
+	(*n)++;
+	return (l);
+}
+
 int	ft_printf(const char *format, ...)
 {
 	va_list	ap;
 	int		i;
 	int		count;
+	int		wc;
 
 	i = 0;
 	count = 0;
@@ -52,16 +78,15 @@ int	ft_printf(const char *format, ...)
 	while (format[i])
 	{
 		if (format[i] == '%')
-		{
-			i++;
-			count += ft_handle_format(format[i], ap);
-		}
+			wc = print_conv(format, &i, &ap);
 		else
+			wc = print_text(format, &i);
+		if (wc == -1)
 		{
-			write(1, &format[i], 1);
-			count++;
+			va_end(ap);
+			return (-1);
 		}
-		i++;
+		count += wc;
 	}
 	va_end(ap);
 	return (count);
