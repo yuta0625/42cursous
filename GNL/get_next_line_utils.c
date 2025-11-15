@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_utils.c                                   :+:      :+:    :+:   */
+/*   get_next_line_utils.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yohya <yohya@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/01 15:09:44 by yohya             #+#    #+#             */
-/*   Updated: 2025/11/05 18:34:13 by yohya            ###   ########.fr       */
+/*   Updated: 2025/11/07 11:32:29 by yohya            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,6 +82,8 @@ char	*extraction_stash(char *stash)
 		i++;
 	if (stash[i] == '\n')
 		i++;
+	if (i == 0 || stash[0] == '\0')
+		return (NULL);
 	let = (char *)malloc(sizeof(char) * (i + 1));
 	if (!let)
 		return (NULL);
@@ -108,6 +110,8 @@ char	*trim_stash(char *stash)
 	len = 0;
 	while (stash[nl + len + 1])
 		len++;
+	if (len == 0)
+		return (free(stash), NULL);
 	rest = (char *)malloc(sizeof(char) * (len + 1));
 	if (!rest)
 		return (free(stash), NULL);
