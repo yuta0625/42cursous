@@ -6,7 +6,7 @@
 /*   By: yohya <yohya@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/31 14:23:25 by yohya             #+#    #+#             */
-/*   Updated: 2025/11/15 11:08:53 by yohya            ###   ########.fr       */
+/*   Updated: 2025/11/15 12:23:45 by yohya            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ char	*get_next_line(int fd)
 		return (NULL);
 	buf = malloc((size_t)BUFFER_SIZE + 1);
 	if (!buf)
-		return (NULL);
+		return (free(stash), stash = NULL, NULL);
 	if (feed_stash(fd, &stash, buf) < 0)
 		return (free(buf), stash = NULL, NULL);
 	free(buf);
