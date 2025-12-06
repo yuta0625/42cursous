@@ -6,7 +6,7 @@
 /*   By: yohya <yohya@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/31 14:23:25 by yohya             #+#    #+#             */
-/*   Updated: 2025/11/15 12:23:45 by yohya            ###   ########.fr       */
+/*   Updated: 2025/11/16 13:01:13 by yohya            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,6 +56,7 @@ char	*get_next_line(int fd)
 	return (ret);
 }
 
+//# include <stdio.h>
 // int main(void)
 // {
 //     int fd = open("output.txt", O_RDONLY);

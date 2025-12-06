@@ -6,7 +6,7 @@
 /*   By: yohya <yohya@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/01 15:09:44 by yohya             #+#    #+#             */
-/*   Updated: 2025/11/07 11:32:29 by yohya            ###   ########.fr       */
+/*   Updated: 2025/11/16 12:38:44 by yohya            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,19 +26,6 @@ int	find_nl(const char *s)
 		i++;
 	}
 	return (-1);
-}
-
-int	gnl_strchr(const char *s)
-{
-	if (!s)
-		return (0);
-	while (*s)
-	{
-		if (*s == '\n')
-			return (1);
-		s++;
-	}
-	return (0);
 }
 
 char	*gnl_strjoin_free(char *old, const char *buf, ssize_t n)
