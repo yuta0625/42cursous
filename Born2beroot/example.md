@@ -13,8 +13,8 @@
 
 CentOSとDebianの基本的な違いに関して
 debaian 系統の違い
-ー＞debianに関しては、コミュニティ主導である。Rocky（Red Hat Enterprise Linux）であり企業向けである。
-パッケージ管理の違い
+ー＞debianに関しては、コミュニティ主導である。Rocky（Red Hat Enterprise Linux）は企業向けである。
+パッケージ管理にも違いがある
 ->.deb(dpkg/apt)がdebainであり.rpm(yum/dnf)がCentOS(Rockyである)
 コミュニティ向けである　ｰ> debian
 大企業向けであるかのちがいがある -> centos/Rocky
@@ -41,8 +41,11 @@ aptitude は apt の代わりに使える上位互換的ツール で、以下�
 sudo aptitude
 
 APPArmorについて
+->Linuxカーネルのセキュリティ機能の一つで、プログラムごとに「プロファイル」を設定し、そのプロファイルに基づいて各アプリケーションがアクセスできるファイルやネットワーク、実行できるコマンドなどを制限する「強制アクセス制御(MAC)」システムである。
+/etc/apparmor.d/ディレクトリ内に、アプリケーションごとに個別のテキストファイルとして保存されている
 ->Linuxのセキュリティ機能の一つで、特定のアプリケーションが何をしてよいかを細かく制限するしくみである
 アプリごとに「できること」と「できないこと」をプロファイルで決めて、もしアプリが乗っ取られても被害を最小化する仕組み。
+
 → ファイアウォールが“外との通信”を守るものだとすると、AppArmor は“アプリの行動”そのものを制限する防御。
 AppArmor が何を制限できる？
 アプリごとに以下のような動作を制限できる：
@@ -240,6 +243,13 @@ sudo grep Port etc/ssh/sshd_config
 
 実際にサービスが　4242番でLISTENしているかの確認
 sudo ss -tlnp | grep ssh
+SSH は標準では 22 番ポートで待ち受けますが、
+課題要件に従い、セキュリティ強化のためポート 4242 のみに Listen させています。
+4242番に変更することで、一般的な攻撃対象である22番ポートを閉じ、
+不正なブルートフォース攻撃を避ける効果があります。
+/etc/ssh/sshd_config の Port 4242 により SSHD が4242で待受するよう設定し、
+UFW でも 4242/tcp のみ許可しています。
+そのため SSH の接続は ssh user@IP -p 4242 のみ可能となっています。
 
 rootでログインできないことを確認する
 ssh root@localhost -p 4242
@@ -260,6 +270,7 @@ oot の crontab に追加した monitoring.sh の行だけを削除すれば OK 
 ただし、絶対に「削除してよいのは “追加した一行だけ”」であって、他は触ってはいけないという点が重要です。
 
 sudo crontab -u root -eで設定した一文を消す
+crontab -e
 */10 * * * * /usr/local/bin/monitoring.sh
 
 monitoring.sh の説明（完成版）
@@ -344,3 +355,44 @@ wall を使うことで、
 
 これは Born2beRoot の指定通りで、
 評価者の前で正しく動いていることを見せられるようにしています。　
+
+cat sudo_config
+Defaults  passwd_tries=3
+Defaults  badpass_message="Mensaje de error personalizado"
+Defaults  logfile="/var/log/sudo/sudo_config"
+Defaults  log_input, log_output
+Defaults  iolog_dir="/var/log/sudo"
+Defaults  requiretty
+Defaults  secure_path="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/snap/bin" ここの説明も必用
+
+passwd_tries=3
+
+「passwd_tries=3 で、sudo 実行時のパスワード試行回数を 3 回までに制限しています。
+辞書攻撃や総当たり攻撃のリスクを下げる目的です。」
+
+▫ badpass_message=...
+
+「badpass_message で、パスワードを間違えたときのメッセージをカスタマイズしています。
+デフォルトのメッセージを変えることで、不必要に内部情報を出さないようにしています。」
+
+▫ logfile="/var/log/sudo/sudo.log"
+
+「logfile で sudo のログ出力先を /var/log/sudo/sudo.log に統一しています。
+sudo に関する操作履歴はこのファイルにまとまって記録されるので、監査や確認がしやすいです。」
+
+▫ log_input, log_output / iolog_dir
+
+「log_input, log_output と iolog_dir により、sudo 実行時の
+入力（実行したコマンド） と 出力（画面の結果） を /var/log/sudo 以下に記録しています。
+誰が何を実行したかを、より詳細に追跡できるようにするための設定です。」
+
+▫ requiretty
+
+「requiretty を有効にして、実際の TTY（端末）上からのみ sudo が実行できるようにしています。
+スクリプトやバッチから勝手に sudo が使われることを防ぐための制限です。」
+
+▫ secure_path=...
+
+「secure_path で、sudo 実行時に有効な PATH を
+/usr/local/sbin や /usr/sbin などの安全なディレクトリに限定しています。
+ユーザーが作成した怪しいコマンドや /tmp 配下の実行ファイルを sudo が拾わないようにしています。」
