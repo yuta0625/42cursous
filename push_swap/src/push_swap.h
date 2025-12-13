@@ -6,7 +6,7 @@
 /*   By: yohya <yohya@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/31 15:04:53 by yohya             #+#    #+#             */
-/*   Updated: 2025/12/09 17:11:10 by yohya            ###   ########.fr       */
+/*   Updated: 2025/12/13 14:07:48 by yohya            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,9 +35,12 @@ typedef struct s_stack
 void	stack_init(t_stack *s);
 t_node	*node_new(int value);
 void	stack_push_bottom(t_stack *s, t_node *n);
-int		to_number(char *str);
 void	fill_stack_from_args(int argc, char **argv, t_stack *a);
 void	print_stack(t_stack *s, const char *name);
 void	set_index(t_stack *stack);
+int		is_valid_integer_string(char *s);
+int		to_number_with_check(char *s, int *out);
+int		is_duplicate_in_stack(t_stack *a, int value);
+void	error_and_exit(void);
 
 #endif

@@ -1,36 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   test.c                                             :+:      :+:    :+:   */
+/*   ft_memset.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yohya <yohya@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/31 15:04:53 by yohya             #+#    #+#             */
-/*   Updated: 2025/12/09 17:09:00 by yohya            ###   ########.fr       */
+/*   Created: 2025/10/17 10:46:21 by yohya             #+#    #+#             */
+/*   Updated: 2025/10/26 12:02:18 by yohya            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
 
-void	print_stack(t_stack *s, const char *name)
+void	*ft_memset(void *s, int c, size_t n)
 {
-	t_node	*cur;
-	int		i;
+	unsigned char		*p;
+	unsigned char		d;
+	size_t				i;
 
-	printf("=== stack %s ===\n", name);
-	printf("size = %d\n", s->size);
-	if (s->size == 0 || s->top == NULL)
-	{
-		printf("(empty)\n");
-		return ;
-	}
-	cur = s->top;
+	p = (unsigned char *)s;
+	d = (unsigned char)c;
 	i = 0;
-	while (i < s->size)
+	while (i < n)
 	{
-		printf("[%d] value=%d index=%d\n", i, cur->value, cur->index);
-		cur = cur->next;
+		p[i] = d;
 		i++;
 	}
-	printf("---- end ----\n");
+	return (s);
 }
+
+// int	main(void)
+// {
+// 	unsigned char	buf[0];
+
+// 	ft_memset(buf, 'A', sizeof(buf));
+// 	printf("%s\n", buf);
+// 	memset(buf, 'B', sizeof(buf));
+// 	printf("%s", buf);
+// }
