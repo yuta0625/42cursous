@@ -1,29 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   array_copy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yohya <yohya@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/31 15:04:53 by yohya             #+#    #+#             */
-/*   Updated: 2025/12/14 15:26:33 by yohya            ###   ########.fr       */
+/*   Updated: 2025/12/13 19:22:20 by yohya            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	main(int argc, char **argv)
+//配列のコピー
+int	*stack_to_array(t_stack *a)
 {
-	t_stack	a;
-	t_stack	b;
+	int		*arr;
+	t_node	*cur;
+	int		i;
 
-	if (argc <= 1)
-		return (0);
-	fill_stack_from_args(argc, argv, &a);
-	stack_init(&b);
-	assign_index_by_sort(&a);
-	radix_sort(&a, &b);
-	// print_stack(&a, "a");
-	// print_stack(&b, "b");
-	return (0);
+	arr = malloc(sizeof(int) * a->size);
+	if (!arr)
+		error_and_exit();
+	cur = a->top;
+	i = 0;
+	while (i < a->size)
+	{
+		arr[i] = cur->value;
+		cur = cur->next;
+		i++;
+	}
+	return (arr);
 }
+
+

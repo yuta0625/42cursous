@@ -6,7 +6,7 @@
 /*   By: yohya <yohya@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/31 15:04:53 by yohya             #+#    #+#             */
-/*   Updated: 2025/12/13 14:49:46 by yohya            ###   ########.fr       */
+/*   Updated: 2025/12/13 19:36:03 by yohya            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,40 +59,16 @@ int	to_number_with_check(char *s, int *out)
 	return (1);
 }
 
-static int	count_smaller(t_stack *s, t_node *cur)
+//重複チェック
+void	check_duplicates_sorted(int *arr, int n)
 {
-	t_node	*cmp;
-	int		j;
-	int		count;
+	int	i;
 
-	cmp = s->top;
-	j = 0;
-	count = 0;
-	while (j < s->size)
+	i = 1;
+	while (i < n)
 	{
-		if (cmp->value < cur->value)
-			count++;
-		else if (cmp != cur && cmp->value == cur->value)
+		if (arr[i] == arr[i - 1])
 			error_and_exit();
-		cmp = cmp->next;
-		j++;
-	}
-	return (count);
-}
-
-void	set_index(t_stack *s)
-{
-	t_node	*cur;
-	int		i;
-
-	if (!s || !s->top || s->size <= 0)
-		return ;
-	cur = s->top;
-	i = 0;
-	while (i < s->size)
-	{
-		cur->index = count_smaller(s, cur);
-		cur = cur->next;
 		i++;
 	}
 }

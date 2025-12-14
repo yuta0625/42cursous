@@ -1,29 +1,43 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   radix_sort.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yohya <yohya@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/31 15:04:53 by yohya             #+#    #+#             */
-/*   Updated: 2025/12/14 15:26:33 by yohya            ###   ########.fr       */
+/*   Updated: 2025/12/14 14:52:16 by yohya            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	main(int argc, char **argv)
+//基数ソート
+void	radix_sort(t_stack *a, t_stack *b)
 {
-	t_stack	a;
-	t_stack	b;
+	int	max_bits;
+	int	max_index;
+	int	bit;
+	int	i;
+	int	n;
 
-	if (argc <= 1)
-		return (0);
-	fill_stack_from_args(argc, argv, &a);
-	stack_init(&b);
-	assign_index_by_sort(&a);
-	radix_sort(&a, &b);
-	// print_stack(&a, "a");
-	// print_stack(&b, "b");
-	return (0);
+	max_index = a->size -1;
+	max_bits = 0;
+	while ((max_index >> max_bits) != 0)
+		max_bits++;
+	bit = 0;
+	while (bit++ < max_bits)
+	{
+		n = a->size;
+		i = 0;
+		while (i++ < n)
+		{
+			if (((a->top->index >> bit) & 1) == 0)
+				pa(a, b);
+			else
+				ra(a);
+		}
+		while (b->size > 0)
+			pa(a, b);
+	}
 }
