@@ -6,7 +6,7 @@
 /*   By: yohya <yohya@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/31 15:04:53 by yohya             #+#    #+#             */
-/*   Updated: 2025/12/14 15:26:33 by yohya            ###   ########.fr       */
+/*   Updated: 2025/12/14 18:05:49 by yohya            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,5 @@ int	main(int argc, char **argv)
 	stack_init(&b);
 	assign_index_by_sort(&a);
 	radix_sort(&a, &b);
-	// print_stack(&a, "a");
-	// print_stack(&b, "b");
 	return (0);
 }

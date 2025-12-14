@@ -6,12 +6,11 @@
 /*   By: yohya <yohya@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/31 15:04:53 by yohya             #+#    #+#             */
-/*   Updated: 2025/12/13 19:36:03 by yohya            ###   ########.fr       */
+/*   Updated: 2025/12/14 18:12:12 by yohya            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-#include "../libft/libft.h"
 
 int	is_valid_integer_string(char *s)
 {

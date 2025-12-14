@@ -6,7 +6,7 @@
 /*   By: yohya <yohya@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/31 15:04:53 by yohya             #+#    #+#             */
-/*   Updated: 2025/12/14 15:14:15 by yohya            ###   ########.fr       */
+/*   Updated: 2025/12/14 18:11:57 by yohya            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 # include <stdlib.h>
 # include <stdio.h>
 # include <unistd.h>
+# include "libft/libft.h"
 
 typedef struct s_node
 {

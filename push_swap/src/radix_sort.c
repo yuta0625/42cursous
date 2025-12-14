@@ -6,7 +6,7 @@
 /*   By: yohya <yohya@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/31 15:04:53 by yohya             #+#    #+#             */
-/*   Updated: 2025/12/14 14:52:16 by yohya            ###   ########.fr       */
+/*   Updated: 2025/12/14 18:06:43 by yohya            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ void	radix_sort(t_stack *a, t_stack *b)
 		while (i++ < n)
 		{
 			if (((a->top->index >> bit) & 1) == 0)
-				pa(a, b);
+				pb(a, b);
 			else
 				ra(a);
 		}

@@ -18,7 +18,6 @@
 # endif
 
 # include <unistd.h>
-# include <stdlib.h>
 
 char	*get_next_line(int fd);
 char	*gnl_strjoin_free(char *old, const char *buf, ssize_t n);
@@ -27,3 +26,4 @@ char	*trim_stash(char *stash);
 int		find_nl(const char *s);
 
 #endif
+# include <stdlib.h>
