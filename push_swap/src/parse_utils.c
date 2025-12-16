@@ -6,7 +6,7 @@
 /*   By: yohya <yohya@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/31 15:04:53 by yohya             #+#    #+#             */
-/*   Updated: 2025/12/14 18:12:12 by yohya            ###   ########.fr       */
+/*   Updated: 2025/12/15 14:48:24 by yohya            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,18 +56,4 @@ int	to_number_with_check(char *s, int *out)
 	}
 	*out = (int)(sign * res);
 	return (1);
-}
-
-//重複チェック
-void	check_duplicates_sorted(int *arr, int n)
-{
-	int	i;
-
-	i = 1;
-	while (i < n)
-	{
-		if (arr[i] == arr[i - 1])
-			error_and_exit();
-		i++;
-	}
 }

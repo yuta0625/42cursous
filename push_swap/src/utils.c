@@ -6,7 +6,7 @@
 /*   By: yohya <yohya@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/31 15:04:53 by yohya             #+#    #+#             */
-/*   Updated: 2025/12/14 18:11:37 by yohya            ###   ########.fr       */
+/*   Updated: 2025/12/15 16:24:40 by yohya            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,11 +42,12 @@ int	is_duplicate_in_stack(t_stack *a, int value)
 		return (0);
 	cur = a->top;
 	i = 0;
-	while (i++ < a->size)
+	while (i < a->size)
 	{
 		if (cur->value == value)
 			return (1);
 		cur = cur->next;
+		i++;
 	}
 	return (0);
 }

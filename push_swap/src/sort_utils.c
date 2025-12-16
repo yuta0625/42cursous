@@ -6,7 +6,7 @@
 /*   By: yohya <yohya@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/31 15:04:53 by yohya             #+#    #+#             */
-/*   Updated: 2025/12/14 12:44:32 by yohya            ###   ########.fr       */
+/*   Updated: 2025/12/15 15:14:22 by yohya            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,15 +34,14 @@ void	quick_sort(int *arr, int left, int right)
 	pivot = arr[(left + right) / 2];
 	i = left;
 	j = right;
-	while (arr[i] < pivot)
-		i++;
-	while (arr[j] > pivot)
-		j--;
-	if (i <= j)
+	while (i <= j)
 	{
-		ft_swap(&arr[i], &arr[j]);
-		i++;
-		j--;
+		while (arr[i] < pivot)
+			i++;
+		while (arr[j] > pivot)
+			j--;
+		if (i <= j)
+			ft_swap(&arr[i++], &arr[j--]);
 	}
 	if (left < j)
 		quick_sort(arr, left, j);
@@ -83,7 +82,6 @@ void	assign_index_by_sort(t_stack *a)
 		return ;
 	arr = stack_to_array(a);
 	quick_sort(arr, 0, a->size - 1);
-	check_duplicates_sorted(arr, a->size);
 	cur = a->top;
 	i = 0;
 	while (i < a->size)

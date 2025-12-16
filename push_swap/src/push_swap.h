@@ -6,7 +6,7 @@
 /*   By: yohya <yohya@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/31 15:04:53 by yohya             #+#    #+#             */
-/*   Updated: 2025/12/14 18:11:57 by yohya            ###   ########.fr       */
+/*   Updated: 2025/12/15 14:55:22 by yohya            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 
 # include <limits.h>
 # include <stdlib.h>
-# include <stdio.h>
 # include <unistd.h>
 # include "libft/libft.h"
 
@@ -43,7 +42,6 @@ int		to_number_with_check(char *s, int *out);
 int		is_duplicate_in_stack(t_stack *a, int value);
 void	error_and_exit(void);
 int		*stack_to_array(t_stack *a);
-void	check_duplicates_sorted(int *arr, int n);
 void	assign_index_by_sort(t_stack *a);
 void	ft_swap(int *a, int *b);
 void	pa(t_stack *a, t_stack *b);
