@@ -6,14 +6,13 @@
 /*   By: yohya <yohya@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/31 15:04:53 by yohya             #+#    #+#             */
-/*   Updated: 2025/12/15 15:14:22 by yohya            ###   ########.fr       */
+/*   Updated: 2025/12/16 10:06:57 by yohya            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-//swap関数
-void	ft_swap(int *a, int *b)
+static void	ft_swap(int *a, int *b)
 {
 	int	temp;
 
@@ -22,7 +21,6 @@ void	ft_swap(int *a, int *b)
 	*b = temp;
 }
 
-//クイックソートアルゴリズム
 void	quick_sort(int *arr, int left, int right)
 {
 	int	pivot;
@@ -49,7 +47,6 @@ void	quick_sort(int *arr, int left, int right)
 		quick_sort(arr, i, right);
 }
 
-//二分探索アルゴリズム
 static	int	get_rank_by_binary_search(int *arr, int size, int target)
 {
 	int	left;

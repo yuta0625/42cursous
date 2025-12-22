@@ -6,7 +6,7 @@
 /*   By: yohya <yohya@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/31 15:04:53 by yohya             #+#    #+#             */
-/*   Updated: 2025/12/15 14:55:22 by yohya            ###   ########.fr       */
+/*   Updated: 2025/12/16 13:55:59 by yohya            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,10 +43,14 @@ int		is_duplicate_in_stack(t_stack *a, int value);
 void	error_and_exit(void);
 int		*stack_to_array(t_stack *a);
 void	assign_index_by_sort(t_stack *a);
-void	ft_swap(int *a, int *b);
 void	pa(t_stack *a, t_stack *b);
 void	pb(t_stack *a, t_stack *b);
 void	ra(t_stack *a);
+void	sa(t_stack *a);
+void	rra(t_stack *a);
 void	radix_sort(t_stack *a, t_stack *b);
+int		is_sorted(t_stack *s);
+void	sort_three(t_stack *a);
+void	sort_four_five(t_stack *a, t_stack *b);
 
 #endif

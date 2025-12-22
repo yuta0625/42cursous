@@ -6,13 +6,12 @@
 /*   By: yohya <yohya@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/31 15:04:53 by yohya             #+#    #+#             */
-/*   Updated: 2025/12/13 19:22:20 by yohya            ###   ########.fr       */
+/*   Updated: 2025/12/20 15:14:36 by yohya            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-//配列のコピー
 int	*stack_to_array(t_stack *a)
 {
 	int		*arr;
@@ -32,5 +31,3 @@ int	*stack_to_array(t_stack *a)
 	}
 	return (arr);
 }
-
-

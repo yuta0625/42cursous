@@ -4,9 +4,11 @@ SRCS = parse_utils.c \
 		radix_sort.c \
 		sort_utils.c \
 		swap_rule.c \
+		swap_rule_1.c \
 		utils_node.c \
 		utils.c \
-		array_copy.c
+		array_copy.c \
+		branch_sort.c 
 
 OBJS = $(SRCS:.c=.o)
 

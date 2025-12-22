@@ -1,56 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utils_node.c                                       :+:      :+:    :+:   */
+/*   swap_rule_1.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yohya <yohya@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/31 15:04:53 by yohya             #+#    #+#             */
-/*   Updated: 2025/12/22 17:32:13 by yohya            ###   ########.fr       */
+/*   Updated: 2025/12/16 12:26:18 by yohya            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	stack_init(t_stack *s)
+void	sa(t_stack *a)
 {
-	s->top = NULL;
-	s->size = 0;
+	int	temp_value;
+	int	temp_index;
+
+	if (!a || a->size < 2)
+		return ;
+	temp_value = a->top->value;
+	temp_index = a->top->index;
+	a->top->value = a->top->next->value;
+	a->top->index = a->top->next->index;
+	a->top->next->value = temp_value;
+	a->top->next->index = temp_index;
+	write(1, "sa\n", 3);
 }
 
-t_node	*node_new(int value)
+void	rra(t_stack *a)
 {
-	t_node	*n;
-
-	n = (t_node *)malloc(sizeof(t_node));
-	if (!n)
-		return (NULL);
-	n->value = value;
-	n->index = 0;
-	n->prev = n;
-	n->next = n;
-	return (n);
-}
-
-void	stack_push_bottom(t_stack *s, t_node *n)
-{
-	t_node	*top;
-	t_node	*bottom;
-
-	if (s->size == 0)
-	{
-		s->top = n;
-		n->next = n;
-		n->prev = n;
-	}
-	else
-	{
-		top = s->top;
-		bottom = top->prev;
-		n->next = top;
-		n->prev = bottom;
-		bottom->next = n;
-		top->prev = n;
-	}
-	s->size++;
+	if (!a || a->size < 2)
+		return ;
+	a->top = a->top->prev;
+	write(1, "rra\n", 4);
 }
