@@ -1,4 +1,4 @@
-NAME = push_swap.a
+NAME = push_swap
 SRCS = parse_utils.c \
 		push_swap.c \
 		radix_sort.c \
@@ -17,8 +17,6 @@ LIBFT     = $(LIBFT_DIR)/libft.a
 
 CC = cc
 CFLAGS = -Wall -Wextra -Werror
-AR = ar
-RCS = rcs
 RM = rm -f
 
 all: $(NAME)
@@ -27,9 +25,7 @@ $(LIBFT):
 	$(MAKE) -C $(LIBFT_DIR)
 
 $(NAME): $(OBJS) $(LIBFT)
-	$(RM) $(NAME)
-	cp $(LIBFT) $(NAME)
-	$(AR) $(RCS) $(NAME) $(OBJS)
+	$(CC) $(CFLAGS) $(OBJS) $(LIBFT) -o $(NAME)
 
 %.o: %.c
 	$(CC) $(CFLAGS) -c $< -o $@

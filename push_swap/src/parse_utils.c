@@ -12,7 +12,7 @@
 
 #include "push_swap.h"
 
-int	is_valid_integer_string(char *s)
+static int	is_valid_integer_string(char *s)
 {
 	int	i;
 
@@ -32,11 +32,11 @@ int	is_valid_integer_string(char *s)
 	return (1);
 }
 
-int	to_number_with_check(char *s, int *out)
+static int	to_number_with_check(char *s, int *out)
 {
-	int			sign;
-	long long	res;
-	int			i;
+	long	sign;
+	long	res;
+	int		i;
 
 	sign = 1;
 	res = 0;
@@ -55,6 +55,43 @@ int	to_number_with_check(char *s, int *out)
 		i++;
 	}
 	*out = (int)(sign * res);
+	return (1);
+}
+
+static int	is_duplicate_in_stack(t_stack *a, int value)
+{
+	t_node	*cur;
+	int		i;
+
+	if (!a || a->size == 0)
+		return (0);
+	cur = a->top;
+	i = 0;
+	while (i < a->size)
+	{
+		if (cur->value == value)
+			return (1);
+		cur = cur->next;
+		i++;
+	}
+	return (0);
+}
+
+int	add_token_to_stack(t_stack *a, char *tok)
+{
+	int		value;
+	t_node	*node;
+
+	if (!is_valid_integer_string(tok))
+		return (0);
+	if (!to_number_with_check(tok, &value))
+		return (0);
+	if (is_duplicate_in_stack(a, value))
+		return (0);
+	node = node_new(value);
+	if (!node)
+		return (0);
+	stack_push_bottom(a, node);
 	return (1);
 }
 

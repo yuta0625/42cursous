@@ -54,3 +54,31 @@ void	stack_push_bottom(t_stack *s, t_node *n)
 	}
 	s->size++;
 }
+
+void	free_stack(t_stack *s)
+{
+	t_node	*cur;
+	t_node	*next;
+	int		i;
+	int		n;
+
+	if (!s || s->size == 0)
+	{
+		if (s)
+			s->top = NULL;
+		return ;
+
+	}
+	cur = s->top;
+	n = s->size;
+	i = 0;
+	while (i < n)
+	{
+		next = cur->next;
+		free(cur);
+		cur = next;
+		i++;
+	}
+	s->top = NULL;
+	s->size = 0;
+}

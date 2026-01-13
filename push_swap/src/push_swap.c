@@ -22,7 +22,10 @@ int	main(int argc, char **argv)
 	fill_stack_from_args(argc, argv, &a);
 	stack_init(&b);
 	if (is_sorted(&a))
+	{
+		free_stack(&a);
 		return (0);
+	}
 	assign_index_by_sort(&a);
 	if (a.size == 2)
 		sa(&a);
@@ -32,5 +35,7 @@ int	main(int argc, char **argv)
 		sort_four_five(&a, &b);
 	else
 		radix_sort(&a, &b);
+	free_stack(&a);
+	free_stack(&b);
 	return (0);
 }

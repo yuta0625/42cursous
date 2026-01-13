@@ -68,6 +68,14 @@ static	int	get_rank_by_binary_search(int *arr, int size, int target)
 	return (-1);
 }
 
+static void	die_index(t_stack *a, int *arr)
+{
+	if (arr)
+		free(arr);
+	free_stack(a);
+	error_and_exit();
+}
+
 void	assign_index_by_sort(t_stack *a)
 {
 	int		*arr;
@@ -78,6 +86,8 @@ void	assign_index_by_sort(t_stack *a)
 	if (!a || a->size <= 0)
 		return ;
 	arr = stack_to_array(a);
+	if (!arr)
+		die_index(a, NULL);
 	quick_sort(arr, 0, a->size - 1);
 	cur = a->top;
 	i = 0;
@@ -85,7 +95,7 @@ void	assign_index_by_sort(t_stack *a)
 	{
 		pos = get_rank_by_binary_search(arr, a->size, cur->value);
 		if (pos < 0)
-			error_and_exit();
+			die_index(a, arr);
 		cur->index = pos;
 		cur = cur->next;
 		i++;
