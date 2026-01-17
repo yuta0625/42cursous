@@ -6,7 +6,7 @@
 /*   By: yohya <yohya@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/31 15:04:53 by yohya             #+#    #+#             */
-/*   Updated: 2025/12/20 15:14:36 by yohya            ###   ########.fr       */
+/*   Updated: 2026/01/13 12:17:52 by yohya            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ int	*stack_to_array(t_stack *a)
 
 	arr = malloc(sizeof(int) * a->size);
 	if (!arr)
-		return NULL;
+		return (NULL);
 	cur = a->top;
 	i = 0;
 	while (i < a->size)

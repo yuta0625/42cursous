@@ -6,7 +6,7 @@
 /*   By: yohya <yohya@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/31 15:04:53 by yohya             #+#    #+#             */
-/*   Updated: 2025/12/22 17:32:13 by yohya            ###   ########.fr       */
+/*   Updated: 2026/01/13 15:43:25 by yohya            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,6 @@ void	free_stack(t_stack *s)
 		if (s)
 			s->top = NULL;
 		return ;
-
 	}
 	cur = s->top;
 	n = s->size;

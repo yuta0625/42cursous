@@ -6,7 +6,7 @@
 /*   By: yohya <yohya@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/31 15:04:53 by yohya             #+#    #+#             */
-/*   Updated: 2025/12/15 16:24:40 by yohya            ###   ########.fr       */
+/*   Updated: 2026/01/13 15:42:56 by yohya            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ static void	cleanup_and_error(t_stack *a, char **sp)
 static int	push_tokens(t_stack *a, char **sp)
 {
 	int	j;
-	
+
 	j = 0;
 	while (sp[j])
 	{

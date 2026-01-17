@@ -6,7 +6,7 @@
 /*   By: yohya <yohya@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/31 15:04:53 by yohya             #+#    #+#             */
-/*   Updated: 2025/12/16 13:55:59 by yohya            ###   ########.fr       */
+/*   Updated: 2026/01/13 15:44:44 by yohya            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ typedef struct s_stack
 void	stack_init(t_stack *s);
 t_node	*node_new(int value);
 void	stack_push_bottom(t_stack *s, t_node *n);
-void 	free_stack(t_stack *s);
+void	free_stack(t_stack *s);
 void	fill_stack_from_args(int argc, char **argv, t_stack *a);
 int		add_token_to_stack(t_stack *a, char *tok);
 void	error_and_exit(void);

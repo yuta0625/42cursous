@@ -6,19 +6,19 @@
 #    By: yohya <yohya@student.42tokyo.jp>           +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/12/16 18:19:39 by yohya             #+#    #+#              #
-#    Updated: 2025/12/16 18:58:57 by yohya            ###   ########.fr        #
+#    Updated: 2026/01/17 17:46:51 by yohya            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 class	Plants:
-	def __init__(self, name, height, day):
+	def __init__(self, name: str, height: int, day: int):
 		self.name = name
 		self.height = height
 		self.day = day
 
-	def	grow(self, grow_cm=1):
+	def	grow(self, grow_cm):
 		self.height += grow_cm
-	def age(self, days=1):
+	def age(self, days):
 		self.day += days
 	def	get_info(self):
 		print(f"{self.name}: {self.height}cm, {self.day} days ago")
