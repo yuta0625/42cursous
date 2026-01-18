@@ -3,7 +3,10 @@
   ・複数のgardenを管理する「司令塔」
   ・植物の追加・成長・レポート作成などを担当する
  　　・GardenStatas(ネストされた補助クラス)ー＞こいつはgardenmanagerの中につくる
-	　　・統計・分析用
+	　　このGardenStatasに持たせるべき処理内容
+         ・入力：その garden の plants（Plant/FloweringPlant/PrizeFlower の list）
+         出力：len(plants)
+　　　　　→ Example: Plants added: 3
 
 
 ・Plant系の継承ツリー

@@ -14,7 +14,7 @@ class Plant:
 	def __init__(self, name: str, height: int):
 		self.name = name
 		self.height = height
-	def grow(self, grow_height):
+	def grow(self, grow_height: int):
 		self.height += grow_height
 		print(f"{self.name} grew {grow_height}cm")
 	def get_info(self):
@@ -30,8 +30,6 @@ class FloweringPlant(Plant):
 		base_info = super().get_info()
 		if self.blooming:
 			status = "blooming"
-		else:
-			status = "not blooming"
 		return f"{base_info}, {self.color} flowers ({status})"
 
 class PrizeFlower(FloweringPlant):
@@ -74,6 +72,7 @@ class GardenManager:
 		for plant in self.plants:
 			plant.grow(amount)
 			self.total_grows += amount
+   
 
 
 
