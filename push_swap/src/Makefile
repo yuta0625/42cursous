@@ -8,12 +8,14 @@ SRCS = parse_utils.c \
 		utils_node.c \
 		utils.c \
 		array_copy.c \
-		branch_sort.c 
+		branch_sort.c
 
 OBJS = $(SRCS:.c=.o)
 
 LIBFT_DIR = libft
 LIBFT     = $(LIBFT_DIR)/libft.a
+
+
 
 CC = cc
 CFLAGS = -Wall -Wextra -Werror
