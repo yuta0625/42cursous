@@ -41,3 +41,96 @@ for i in range(1, arg_count + 1)
     score = score + [int(sys.argv[i])]
 
 sys.argvの有効なindexは0~len(sys.argv)-1になる
+
+for文でrange()なしで回すには、スライスしたargvを回すのが一番きれいである。
+
+forが回せるものの種類
+list（リスト）
+tuple（タプル）
+str（文字列：1文字ずつ出る）
+dict（辞書：デフォでキーが出る）
+set（集合：順序は安定しない）
+range（今回は使わない）
+ファイルオブジェクト（1行ずつ）
+sys.argv みたいなリスト などなど
+
+tupleをつかって3D座標系を構築する。
+->tupleはあとから変更を行うことができないリストである
+
+「同じ型のものを集める場合にはリスト、違う型のもの同士を集める場合にはタプル」
+
+sys sys.argvを使って行う
+python3 ft_coordinate_system.py "3,4,0"
+sys.argv[1] が "3,4,0"
+split(",") して int() に変換して (3, 4, 0) を作る
+
+複数座標もやるなら：
+python3 ft_coordinate_system.py "0,0,0" "10,20,5"
+2点間距離を計算できる
+
+split()の結果はlist[str]だから、それをtuple[int, int, int]に変換すればいい
+
+pythonで使いたくない(関数内で利用しない)引数がある場合、主にアンダースコア(_)を使う習慣や、(*args, **kwargs)を利用して無視することが行われる
+
+def my_function(a, b, _):
+    # a と b は使うが、3番目の引数は無視する
+    return a + b
+
+print(my_function(10, 20, "使いたくない値"))  # 結果: 30
+
+set()
+集合を作るやつ。
+a = set([1, 2, 2, 3])   # {1, 2, 3}  重複が消える
+b = set("abca")        # {'a','b','c'}  文字がユニーク化
+empty = set()          # 空集合（{} は dict になるので注意）
+
+union() ->和集合
+「どっちかに入っているやつ全部」
+a = {1, 2, 3}
+b = {3, 4}
+print(a.union(b))   # {1,2,3,4}
+
+intersection()　->積集合
+「両方に入っているやつだけ」
+a = {1, 2, 3}
+b = {3, 4}
+print(a.intersection(b))  # {3}
+
+difference() -> 差集合
+a = {1, 2, 3}
+b = {3, 4}
+print(a.difference(b))  # {1,2}
+print(b.difference(a))  # {4}
+
+set型オブジェクトを扱うことができると、集合の計算を簡単にできる
+集合の計算とは
+・和集合
+・積集合
+・差集合
+・排他的論理和集合
+
+dict()->辞書をつくる
+d = dict()
+d2 = dict(a=1, b=2)   # {"a": 1, "b": 2}
+
+keys() -> キー一覧(ビューを返す)
+d = {"a": 1, "b": 2}
+d.keys()  # dict_keys(['a', 'b'])
+
+values() -> 値一覧(ビュー)を返す
+d.values()  # dict_values([1, 2])
+
+items() -> (キー, 値) のペア一覧（ビュー）を返す。ループで超使う。
+for k, v in d.items():
+    print(k, v)
+
+get() -> キーを取り出す。キーが無い時にエラーにせず None やデフォルト値を返せる。
+d = {"a": 1}
+d.get("a")        # 1
+d.get("x")        # None
+d.get("x", 0)     # 0  (デフォルト指定)
+
+update() -> 辞書をまとめて追加・上書きする。
+d = {"a": 1, "b": 2}
+d.update({"b": 20, "c": 3})
+# {"a": 1, "b": 20, "c": 3}
