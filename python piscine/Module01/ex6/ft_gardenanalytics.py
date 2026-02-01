@@ -1,4 +1,5 @@
 class Plant:
+    """植物(Plant)の基本クラス/Base class: name・height・plant_typeを持ち,grow()で成長させる."""
     def __init__(self, name: str, height: int) -> None:
         self.name = name
         self.height = height
@@ -10,12 +11,14 @@ class Plant:
 
 
 class FloweringPlant(Plant):
+    """花の植物(FloweringPlant)/Plantを継承し、colorとbloomingを追加する."""
     def __init__(
         self, name: str,
         height: int,
         color: str,
         blooming: bool
     ) -> None:
+        """plant_type = floweringをもつ"""
         super().__init__(name, height)
         self.color = color
         self.blooming = blooming
@@ -23,6 +26,7 @@ class FloweringPlant(Plant):
 
 
 class PrizeFlower(FloweringPlant):
+    """(PrizeFlower)/FloweringPlantを継承し、pointsを追加する"""
     def __init__(
         self, name: str,
         height: int,
@@ -30,19 +34,24 @@ class PrizeFlower(FloweringPlant):
         blooming: bool,
         points: int
     ) -> None:
+        """plant_type = prizeをもつ"""
         super().__init__(name, height, color, blooming)
         self.points = points
         self.plant_type = "prize"
 
 
 class GardenManager:
+    """GardenManger/ownerごとの植物リストを管理し,growとreportを行う"""
     class GardenStats:
+        """calculating statics"""
         @staticmethod
         def height_validation(height: int) -> bool:
+            """高さの検証を行う"""
             return height >= 0
 
         @staticmethod
         def count_types(plants: list[Plant]) -> tuple[int, int, int]:
+            """種類カウント：regular, flowering, prizeを数えて返す"""
             regular = 0
             flowering = 0
             prize_flowers = 0
@@ -57,6 +66,7 @@ class GardenManager:
 
         @staticmethod
         def format_plant_line(plant: Plant) -> str:
+            """植物の表示行を作る：typeごとに表示内容を変える"""
             if plant.plant_type == "prize":
                 bloom = "(blooming)" if plant.blooming else ""
                 return (
@@ -73,7 +83,11 @@ class GardenManager:
 
         @staticmethod
         def garden_scores(plants: list[Plant]) -> int:
-            """Scores = height total + prize points."""
+            """
+            スコア計算を行う。
+            計算：
+                Scores = height total + prize points.
+            """
             scores = 0
             for plant in plants:
                 scores += plant.height
@@ -82,11 +96,13 @@ class GardenManager:
             return scores
 
     def __init__(self) -> None:
+        """管理用データを初期化:gardensとtotal_growthを用意する"""
         self.gardens: dict[str, list[Plant]] = {}
         self.total_growth: dict[str, int] = {}
 
     @classmethod
     def create_garden_network(cls) -> "GardenManager":
+        """デモ用の初期データを作る: Aliceの庭に複数植物を追加する"""
         mgr = cls()
         mgr.add_plant("Alice", Plant("Oak Tree", 101))
         mgr.add_plant("Alice", FloweringPlant("Rose", 26, "red", True))
@@ -96,48 +112,54 @@ class GardenManager:
         return mgr
 
     def add_plant(self, owner: str, plant: Plant) -> None:
+        """植物を追加 (add plant): ownerの庭に plantを登録する"""
         if owner not in self.gardens:
             self.gardens[owner] = []
-        self.gardens[owner].append(plant)
+        self.gardens[owner] += [plant]
         print(f"Added {plant.name} to {owner} garden")
 
     def grow_all(self, owner: str, amount: int) -> None:
+        """全植物を成長 (grow all): ownerの庭の植物を一括で grow(amount)する"""
         if owner not in self.gardens:
             print(f"{owner} is helping all plants grow...")
             return
         if owner not in self.total_growth:
             self.total_growth[owner] = 0
         print(f"{owner} is helping all plants grow...")
-        for plant in self.gardens.get(owner, []):
+        for plant in self.gardens[owner]:
             plant.grow(amount)
             self.total_growth[owner] += amount
 
     def report(self, owner: str) -> None:
+        """レポート出力 (report): ownerの庭の一覧・成長量・種別カウントを表示する"""
         if owner in self.gardens:
             plants = self.gardens[owner]
         else:
             plants = []
+        if owner in self.total_growth:
+            growth = self.total_growth[owner]
+        else:
+            growth = 0
         print(f"=== {owner}'s Garden Report ===")
         print("Plants in garden:")
         for plant in plants:
             print(self.GardenStats.format_plant_line(plant))
         regular, flowering, prize = self.GardenStats.count_types(plants)
-        print(
-            f"Plants added: {len(plants)}, "
-            f"Total growth: {self.total_growth.get(owner, 0)}"
-        )
+        print(f"Plants added: {len(plants)}, Total growth: {growth}")
         print(
             f"Plant types: {regular} regular. "
             f"{flowering} flowering, {prize} prize flowers"
         )
 
     def total_gardens(self) -> int:
+        """count gardensを返す"""
         count = 0
         for _ in self.gardens:
             count += 1
         return count
 
     def print_scores(self) -> None:
+        """各庭のスコアを表示"""
         line = "Garden scores"
         first = True
         for owner in self.gardens:
@@ -153,6 +175,7 @@ class GardenManager:
 def ft_gardenanalytics() -> None:
     print("=== Garden Management System Demo ===")
     print()
+    """GardenMangerを生成し、grow/report/scoreを実行"""
     mgr = GardenManager.create_garden_network()
     print()
     mgr.grow_all("Alice", 1)

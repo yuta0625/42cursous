@@ -1,4 +1,5 @@
 def ft_garden_intro() -> None:
+    """name, height, ageの値を設定"""
     name = "Rose"
     height = "25cm"
     age = "30 days"
@@ -6,7 +7,7 @@ def ft_garden_intro() -> None:
     print(f"Plant: {name}")
     print(f"Height: {height}")
     print(f"Age: {age}")
-    print("=== End of Program ===")
+    print("\n=== End of Program ===")
 
 
 if __name__ == '__main__':

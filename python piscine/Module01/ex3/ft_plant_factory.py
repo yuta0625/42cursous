@@ -1,4 +1,5 @@
 class Plants:
+    """植物の基本データを保持し、作成し出力を行うクラス"""
     def __init__(self, name: str, height: int, day: int) -> None:
         self.name = name
         self.height = height
@@ -9,6 +10,7 @@ class Plants:
 
 
 def ft_plant_factory() -> None:
+    """複数のPlantsを生成して一覧表示し、作成数(total count)を表示する"""
     plants_data = [
         Plants("Rose", 25, 30),
         Plants("Oak", 200, 365),

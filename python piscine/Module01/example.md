@@ -151,3 +151,79 @@ classmethodは「インスタンスを固定する」ためじゃなくて「ク
 関連する型を名前空間としてまとめる
 そとにconfigやstateを散らかしたくないとき
 
+今回のex6の大枠の概要に関してのまとめ
+全体構造
+・植物(Plant)という型を作り
+・それを継承して花が咲く植物/賞品付きの植物をつくり
+・さらにGrademManagerが持ち主ごとの庭(garden)をdictで管理して
+・成長させたり、レポートやスコアを計算する
+
+class GardenManager:
+    def __init__(self) -> None:
+        self.garden: dict[str, list[Plant]] = {}
+        self.total_growth: dict[str, int] = {}
+
+self.garden: dict[str, list[Plant]] = {}
+・key: owner(例："Alice")
+・value: その人の庭にある植物リスト(list[Plant])
+
+
+self.total_growth: dict[str, int] = {}
+・key: owner
+・value: そのownerが成長させた合計cm
+
+classmethod: クラスから”初期セット”を作る
+def create_garden_network(cls) -> "GardenManager":
+    mgr = cls()
+    mgr.add_plat()
+    ....
+    return mgr
+
+classmethodは何のため
+@classmethodは「クラスに紐づくメソッド」で第一引数がcls
+ここでやっているのは初期状態が入ったGardenManagerを作る工場
+・mgr = cls()
+->もし将来GardenManagerを継承したクラスProGardenManagerをつくっても、ProGardenManger.create_garden_network()がProGardenManagerのインスタンスを返す
+
+add_plant: dictを安全に使うための基本
+def add_plant(self, owner: str, plant: Plant) -> None:
+    if owner not in self.gardens:
+        self.gardens[owner] = []
+    self.gardens[owner].appned(plant)
+
+まだ owner が登録されてなければ空リストを作る
+そこに append
+
+def grow_all(self, owner: str, amount: int) -> None:
+    if owner not in self.gardens:
+        print(f"{owner} is helping all plants grow...")
+        return
+    if owner not in self.total_growth:
+        self.total_growth[owner] = 0
+    print(f"{owner} is helping all plants grow...")
+    for plant in self.gardens.get(owner, []):
+        plant.grow(amount)
+        self.total_growth[owner] += amount
+dict.get(key, default) は keyがなくても安全に値を取れる
+plant.grow() は 多態性（ポリモーフィズム）で効いてる
+Plant / FloweringPlant / PrizeFlower を混ぜても同じ grow() が呼べる
+
+GardenStats: クラス内クラス + staticmethod
+class GardenManager:
+    class GardenStats:
+        @staticmethod
+        def height_validation(height: int) -> bool:
+            return height >= 0
+
+GardenStatsはGardenMangerの付属ユーティリティって位置づけ
+外にGardenStatsを独立でおいても動くけど、「庭の統計はGardenMangerに属する」という意味が読みやすくなる
+
+@staticmethodは何のため？
+@staticmethodはselfもclsもいらない関数を「クラスの中に整理して置く」ため。
+
+・height_vvalidationはインスタンス状態を使わない
+・count_typesもplantsリストを引数に貰えば十分
+・format_plant_lineもplantを引数に貰えば十分
+・garden_scoresも同じ
+
+
