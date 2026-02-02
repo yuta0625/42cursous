@@ -1,4 +1,4 @@
-def ft_garden_intro() -> None:
+def main() -> None:
     """name, height, ageの値を設定"""
     name = "Rose"
     height = "25cm"
@@ -11,4 +11,4 @@ def ft_garden_intro() -> None:
 
 
 if __name__ == '__main__':
-    ft_garden_intro()
+    main()

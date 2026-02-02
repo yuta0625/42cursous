@@ -23,22 +23,22 @@ class SecurePlant:
         print(f"Plant created: {name}")
 
     def set_height(self, height: int) -> None:
-        """heightを更新, neagativeはreject"""
+        """heightを更新, negativeはreject"""
         if height < 0:
             print(f"Invalid operation attempted: height {height}cm [REJECTED]")
-            print("Security: Negative height rejected")
+            print("Security: Negative height rejected\n")
             return
         self.__height = height
         print(f"Height update: {height}cm [OK]")
 
     def set_age(self, age: int) -> None:
         if age < 0:
-            """ageを更新, neagativeはreject"""
+            """ageを更新, negativeはreject"""
             print(f"Invalid operation attempted: age {age}days [REJECTED]")
             print("Security: Negative age rejected")
             return
         self.__age = age
-        print(f"Height update: {age}days [OK]")
+        print(f"Age update: {age} days [OK]\n")
 
     def get_info(self) -> str:
         return (
@@ -47,15 +47,16 @@ class SecurePlant:
         )
 
 
-def ft_garden_security() -> None:
+def main() -> None:
     """SecurePlantを使って安全な更新(validation)を検証"""
     print("=== Garden Security System ===")
-    rose = SecurePlant("Rose", 25, 30)
+    rose = SecurePlant("Rose", 20, 40)
     rose.set_name("Rose")
-    rose.set_height(40)
-    rose.set_age(40)
+    rose.set_height(25)
+    rose.set_age(30)
+    rose.set_height(-5)
     print(rose.get_info())
 
 
 if __name__ == "__main__":
-    ft_garden_security()
+    main()

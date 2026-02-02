@@ -1,4 +1,4 @@
-class Plants:
+class Plant:
     """植物の基本データを保持し、作成し出力を行うクラス"""
     def __init__(self, name: str, height: int, day: int) -> None:
         self.name = name
@@ -9,14 +9,14 @@ class Plants:
         print(f"Created: {self.name} ({self.height}cm, {self.day} days)")
 
 
-def ft_plant_factory() -> None:
+def main() -> None:
     """複数のPlantsを生成して一覧表示し、作成数(total count)を表示する"""
     plants_data = [
-        Plants("Rose", 25, 30),
-        Plants("Oak", 200, 365),
-        Plants("Cactus", 5, 90),
-        Plants("Sunflower", 80, 45),
-        Plants("Fern", 15, 120),
+        Plant("Rose", 25, 30),
+        Plant("Oak", 200, 365),
+        Plant("Cactus", 5, 90),
+        Plant("Sunflower", 80, 45),
+        Plant("Fern", 15, 120),
     ]
     print("=== Plant Factory Output ===")
     count = 0
@@ -28,4 +28,4 @@ def ft_plant_factory() -> None:
 
 
 if __name__ == '__main__':
-    ft_plant_factory()
+    main()

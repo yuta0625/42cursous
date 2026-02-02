@@ -1,4 +1,4 @@
-class Plants:
+class Plant:
     """植物の状態を管理するクラス:grow, age, infoを持つ"""
     def __init__(self, name: str, height: int, day: int) -> None:
         self.name = name
@@ -24,9 +24,9 @@ class Plants:
         print(f"Growth this week: +{self.grow_count}cm")
 
 
-def ft_plant_growth() -> None:
+def main() -> None:
     """1週間のgrowシュミレーションを確認する"""
-    rose = Plants("Rose", 25, 30)
+    rose = Plant("Rose", 25, 30)
     print("=== Day1 ===")
     rose.get_info()
     rose.grow(6)
@@ -37,4 +37,4 @@ def ft_plant_growth() -> None:
 
 
 if __name__ == '__main__':
-    ft_plant_growth()
+    main()

@@ -1,6 +1,11 @@
-def ft_first_exception():
-    print("=== Garden Temperature Checker ===")
-    print()
+def check_temperature() -> None:
+    """
+    標準入力から受け取った値を整数に変換し、次の条件で判定して表示を行う
+    - 0-40
+    - 0未満
+    - 40より大きい
+    整数に変換をすることができない入力の場合は、エラーメッセージを表示する
+    """
     number = input("Testing temperture: ")
     try:
         temputer = int(number)
@@ -12,9 +17,13 @@ def ft_first_exception():
             print(f"{temputer}°C is too cold for plants (min 0°C)")
     except ValueError:
         print(f"Error: '{number}' is not a valid number")
-    print()
-    print("All tests completed - program didn't crash!")
+
+
+def main():
+    print("=== Garden Temperature Checker ===\n")
+    check_temperature()
+    print("\nAll tests completed - program didn't crash!")
 
 
 if __name__ == "__main__":
-    ft_first_exception()
+    main()

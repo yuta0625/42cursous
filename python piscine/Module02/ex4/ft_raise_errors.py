@@ -3,6 +3,10 @@ def check_plant_health(
     water_level: int,
     sunlight_hours: int,
 ) -> str:
+    """
+    - plant_name, water_level, sunlight_hoursを確認
+    - 問題があればValueError
+    """
     if not plant_name:
         raise ValueError("Error: Plant name cannot be empty!\n")
     if water_level < 1:
@@ -21,31 +25,38 @@ def check_plant_health(
         raise ValueError(
             f"Error: Sunlight hours {sunlight_hours} is too low (max 12)\n"
         )
-    return f"Plant {plant_name} is healthy!\n"
+    return f"Plant '{plant_name}' is healthy!\n"
 
 
 def test_plant_checks() -> None:
+    """
+    check_plant_health()をいくつかの入力でチェックをおこなう
+    """
     print("=== Garden Plant Health Checker ===\n")
     print("Testing good values")
     try:
         print(check_plant_health("tomato", 3, 4))
     except ValueError as e:
         print(e)
+
     print("Testing empty plant name...")
     try:
         print(check_plant_health("", 2, 4))
     except ValueError as e:
         print(e)
+
     print("Testing bad water level...")
     try:
         print(check_plant_health("tomato", 15, 4))
     except ValueError as e:
         print(e)
+
     print("Testing bad sunlight hours...")
     try:
         print(check_plant_health("tomato", 3, 0))
     except ValueError as e:
         print(e)
+
     print("All error raising tests completed!")
 
 
