@@ -66,7 +66,7 @@ def main() -> None:
     print(f"Dictionary keys: {list(inv.keys())}")
     print(f"Dictionary values: {list(inv.values())}")
     print(f"Sample lookup - 'sword' in inventory: {'sword' in inv}")
-    
+
 
 if __name__ == "__main__":
     main()

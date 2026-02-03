@@ -130,7 +130,31 @@ d.get("a")        # 1
 d.get("x")        # None
 d.get("x", 0)     # 0  (デフォルト指定)
 
+user = {"name": "Alice", "age": 20}
+# 1. キーが存在する場合
+print(user.get("name"))  # 出力: Alice
+# 2. キーが存在しない場合（デフォルト値なし -> None）
+print(user.get("address"))  # 出力: None
+# 3. キーが存在しない場合（デフォルト値を指定）
+print(user.get("address", "Unknown"))  # 出力: Unknown
+
 update() -> 辞書をまとめて追加・上書きする。
 d = {"a": 1, "b": 2}
 d.update({"b": 20, "c": 3})
 # {"a": 1, "b": 20, "c": 3}
+
+exercise5-ft_data_stream
+iterをつかって必要なぶぶんだけかえす
+
+yeild
+関数を「値を１個ずつ返すジェネレータにする」
+
+Excercise5に関して
+
+Processing 1000 game eventsに関して
+インベント生成
+例：毎回"Event k: Player {name} (level {lv} {action})みたいな文字列をyieldする
+
+1000件ぶんストリーミング処理
+for _ in range(1000):
+    event = next(stream)のように
