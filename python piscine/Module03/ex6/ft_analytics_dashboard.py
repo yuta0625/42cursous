@@ -38,41 +38,39 @@ def generater():
         yield p
 
 
+def category(players: list) -> tuple[int, int, int]:
+    high = 0
+    medium = 0
+    low = 0
+    for p in players["socre"]:
+        if p > 2000:
+            high += 1
+        elif 1000 < p <= 2000:
+            medium += 1
+        else:
+            low += 1
+    return high, medium, low
+
+
 def main():
-    """一度ですべてを展開している"""
+    """generatorの情報を一度で展開"""
+    players = list(generater())
+
     print("=== Game Analytics Dashboard ===\n")
+    """list_comprehensions"""
+    high_scores = [p["name"] for p in players if p["score"] > 2000]
+    score_doubled = [p["score"] * 2 for p in players]
+    active_players = [p["name"] for p in players if p["active"]]
+
+    """dict_comprehensions"""
+    players_score = {p["name"]: p["score"] for p in players}
+
+    print(f"High scores (>2000): {high_scores}")
+    print(f"Scores doubled: {score_doubled}")
+    print(f"Active players: {active_players}\n")
+    print("=== Dict Comprehension Examples ===")
+    print(f"Player scores: {players_score}")
 
 
 if __name__ == "__main__":
     main()
-
-
-# elf.player_names = [
-#             "Alice",
-#             "Bob",
-#             "Charlie",
-#             "Diana",
-#             "Eve",
-#             "Frank",
-#             "Grace",
-#             "Henry",
-#             "Ivy",
-#             "Jack",
-#             "Kate",
-#             "Liam",
-#             "Maya",
-#             "Noah",
-#             "Olivia",
-#             "Paul"]
-
-#         self.achievements = [
-#             "first_kill", "level_10", "level_50", "level_100", "speedrun",
-#             "explorer", "treasure_hunter", "boss_slayer", "collector",
-#             "perfectionist", "social_butterfly", "lone_wolf", "strategist",
-#             "berserker", "pacifist", "completionist"
-#         ]
-
-#         self.item_types = [
-#             "sword", "shield", "potion", "bow", "arrow", "armor", "helmet",
-#             "boots", "ring", "amulet", "scroll", "gem", "key", "map"
-#         ]
