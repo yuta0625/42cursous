@@ -1,0 +1,6 @@
+Input Stream active. Enter archivist ID: Traceback (most recent call last):
+  File "/home/yohya/Module04/ex2/ft_stream_management.py", line 19, in <module>
+    main()
+  File "/home/yohya/Module04/ex2/ft_stream_management.py", line 6, in main
+    archivist_id = input("Input Stream active. Enter archivist ID: ")
+KeyboardInterrupt
