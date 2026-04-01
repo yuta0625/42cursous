@@ -149,12 +149,89 @@ iterをつかって必要なぶぶんだけかえす
 yeild
 関数を「値を１個ずつ返すジェネレータにする」
 
-Excercise5に関して
 
+Excercise5に関して
+<アウトラインの作成>
 Processing 1000 game eventsに関して
 インベント生成
 例：毎回"Event k: Player {name} (level {lv} {action})みたいな文字列をyieldする
 
 1000件ぶんストリーミング処理
 for _ in range(1000):
-    event = next(stream)のように
+    event = next(stream)のように1件ずつ取り出して処理
+
+取り出した文字列から条件判定してカウント
+3つの指標ならこう：
+・Hight-level players(10+)
+ ->イベント文字列からlevelの数字を取り出して
+・Treasure events
+->"found treasure"が含まれてたらterasure += 1
+・Level-up
+->"leveled up"が含まれていたらlevel_up +=1
+最後にカウンタを出力すると、出力結果はさっきのような形になる。
+
+「1000件イベントを作るというより、イベントをその場で生成して流す」
+そこでのPlayersの持ち方は次の条件を満たすのが扱いやすい
+・固定サイズで、毎回参照できる
+・イベント生成に必要な最小情報だけ持つ
+・解析(high-level/treasure/level-up)に直結する情報をもつ
+
+プレイヤー一覧はタプルのタプルの方がいいかもしれない
+list[tuple[str, int]]
+プレイヤーを途中で増やす/消す/並び替える可能性があるならlistが自然である
+tupel[tuple[str, int], ....]
+プレイヤー集合を固定のマスターデータとして持つなら、タプルの方がいい
+
+現状のplayersの持ち方
+players: tuple[tuple[str, int], ...]
+players = {
+    ("alice", 5),
+    ("bob", 12),
+    ("charlie", 8),
+}
+
+Actions
+actions: tuple[str, ...]
+actions = {
+    "killed monster",
+    "found treasure",
+    "leveled up",
+}
+
+・tupleを使う理由(listでもいいけど)
+    ・変更しない前提のマスターデータ
+    ・誤って.append()できない
+    ・「固定データを参照しながらstreamを生成している」
+
+・generataor側での使い方(設計イメージ)
+    ・iをインクリメントしながら
+    ・player[i % len(players)]でプレイヤーを選択
+    ・actions[i % len(actions)]で行動を選択
+    ・yeild(name, level, action)
+
+ジェネレータ(yield)でストリームを作って、必要な分だけ取り出して処理する
+
+次の処理を考える
+現状の3つの数値に関して、1000回イベントを取り出して(nextで消費して)その都度条件に合えばカウントを増やすという、ストリーミング集計である
+
+この時の考え方として「iterにアクセスする」というより、「itearator(ジェネレター)からnext()で1件取り出す」の考え方がいい
+
+1000件処理の流れ（イメージ）
+stream = iter(generators()) で 1本のストリーム（iterator）を作る
+for i in range(1000): を回す
+毎回 event = next(stream) で 次のイベント1件を取得
+そのイベントの中身を見て、カウンタを更新する
+
+Memory usage: Constant(streming)とは？
+→処理するイベント数が増えても、メモリ使用量が増えない
+今回の処理でのポイント
+・events = []に1000件ためていない
+・全イベントをlist/dictに保存していない
+・1件取り出して→使って→捨てる
+つまりメモリ上には常に：
+・カウンタ数個(high_level, tresure, level_up)
+・今処理中の1イベントだけ
+
+この処理でどのくらいの処理時間がかかったのかを計測する
+import time
+time.time
